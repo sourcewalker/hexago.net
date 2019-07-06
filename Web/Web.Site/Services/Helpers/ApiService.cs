@@ -1,0 +1,137 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Web.Site.Services.Interfaces;
+using Web.Site.Services.Models;
+
+namespace Web.Site.Services.Helpers
+{
+    public class ApiService : IApiService
+    {
+        private Uri baseUrl;
+        private string username;
+        private string password;
+
+        public ApiService()
+        {
+            baseUrl = new Uri(ConfigurationManager.AppSettings["Api:BaseUrl"]);
+            username = ConfigurationManager.AppSettings["Api:Username"];
+            password = ConfigurationManager.AppSettings["Api:Password"];
+        }
+
+        public async Task<string> GetPrivacyAsync()
+        {
+            try
+            {
+                var apiUrl = new Uri(baseUrl, "legal/privacy");
+
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = apiUrl;
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    string credentials = $"{username}:{password}";
+                    byte[] bytes = Encoding.ASCII.GetBytes(credentials);
+                    string authentication = Convert.ToBase64String(bytes);
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Basic", authentication);
+
+                    string result;
+
+                    using (var response = await client.GetAsync(apiUrl))
+                    {
+                        using (var content = response.Content)
+                        {
+                            result = await content.ReadAsStringAsync();
+                        }
+                    }
+
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse<LegalText>>(result);
+
+                    if (apiResponse.Success)
+                    {
+                        return apiResponse.Data.Terms;
+                    }
+
+                    throw new HttpRequestException("Api Service unreachable");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<DataModel> GetHomeModelAsync(string culture)
+        {
+            try
+            {
+                var apiUrl = new Uri(baseUrl, "vote/model");
+
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = apiUrl;
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    string credentials = $"{username}:{password}";
+                    byte[] bytes = Encoding.ASCII.GetBytes(credentials);
+                    string authentication = Convert.ToBase64String(bytes);
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Basic", authentication);
+
+                    string query;
+                    var queryStrings = new Dictionary<string, string>()
+                        {
+                            { "culture", culture }
+                        };
+                    using (var content = new FormUrlEncodedContent(queryStrings))
+                    {
+                        query = await content.ReadAsStringAsync();
+                    }
+
+                    string result;
+
+                    using (var response = await client.GetAsync($"{apiUrl}?{query}"))
+                    {
+                        using (var content = response.Content)
+                        {
+                            result = await content.ReadAsStringAsync();
+                        }
+                    }
+
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse<DataModel>>(result);
+
+                    if (apiResponse.Success)
+                    {
+                        return apiResponse.Data;
+                    }
+
+                    throw new HttpRequestException("Api Service unreachable");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}
