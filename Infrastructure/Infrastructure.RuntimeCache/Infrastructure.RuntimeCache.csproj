@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B151599-2CED-4929-8C88-4D098EAA41E6}</ProjectGuid>
+    <ProjectGuid>{F7689F9D-E4CE-4EB4-A979-D7F43A3D7484}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Infrastructure.Interfaces</RootNamespace>
-    <AssemblyName>Core.Infrastructure.Interfaces</AssemblyName>
+    <RootNamespace>Infrastructure.RuntimeCache</RootNamespace>
+    <AssemblyName>Infrastructure.RuntimeCache</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,27 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\LoginResult.cs" />
-    <Compile Include="Account\IAccountProvider.cs" />
-    <Compile Include="Account\Login.cs" />
-    <Compile Include="Caching\ICacheProvider.cs" />
-    <Compile Include="Crm\CrmData.cs" />
-    <Compile Include="Crm\ICrmAuthenticationProvider.cs" />
-    <Compile Include="Crm\ICrmCommerceProvider.cs" />
-    <Compile Include="Crm\ICrmConsumerProvider.cs" />
-    <Compile Include="Logging\ILoggingProvider.cs" />
-    <Compile Include="Scheduler\CronEnum.cs" />
-    <Compile Include="Scheduler\ISchedulerProvider.cs" />
-    <Compile Include="UserData\IUserDataProvider.cs" />
+    <Compile Include="HttpRuntimeCacheProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserData\User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Common\Core.Shared.csproj">
-      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
-      <Name>Core.Shared</Name>
+    <ProjectReference Include="..\..\Core\Core.Infrastructure.Interfaces\Core.Infrastructure.Interfaces.csproj">
+      <Project>{1B151599-2CED-4929-8C88-4D098EAA41E6}</Project>
+      <Name>Core.Infrastructure.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

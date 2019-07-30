@@ -22,7 +22,6 @@ namespace Web.Site.Controllers
 
         public async Task<ActionResult> Index()
         {
-            ViewBag.Enumerables = await _apiService.GetHomeModelAsync(Thread.CurrentThread.CurrentCulture.Name);
             ViewBag.CaptchaSiteKey = _configurationProvider.GetSharedEnvironmentConfigByCulture("Captcha:SiteKey",
                                             Thread.CurrentThread.CurrentCulture);
             ViewBag.PrivacyNoticeUrl = string.Format(

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.ProCampaign.Authentication
+namespace Infrastructure.ProCampaign.Ecommerce.Entities
 {
-    public class AuthenticationProvider
+    public class ProductLink
     {
+        public string Url { get; set; }
     }
 }

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,8 +43,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\AuthenticationProvider.cs" />
     <Compile Include="Constants\ProCampaignConstants.cs" />
+    <Compile Include="Ecommerce\Authentication\AuthenticationProvider.cs" />
+    <Compile Include="Ecommerce\Authentication\AuthenticationHelper.cs" />
+    <Compile Include="Ecommerce\Authentication\EcommerceAuthForm.cs" />
+    <Compile Include="Ecommerce\Authentication\EcommerceAuthResponse.cs" />
+    <Compile Include="Ecommerce\Entities\Address.cs" />
+    <Compile Include="Ecommerce\Entities\Availability.cs" />
+    <Compile Include="Ecommerce\Entities\BearerToken.cs" />
+    <Compile Include="Ecommerce\Entities\Classification.cs" />
+    <Compile Include="Ecommerce\Entities\ClassificationAccessibilityType.cs" />
+    <Compile Include="Ecommerce\Entities\Consumer.cs" />
+    <Compile Include="Ecommerce\Entities\CustomAttribute.cs" />
+    <Compile Include="Ecommerce\Entities\DeliveryDetails.cs" />
+    <Compile Include="Ecommerce\Entities\DeliveryInfoType.cs" />
+    <Compile Include="Ecommerce\Entities\OrderItem.cs" />
+    <Compile Include="Ecommerce\Entities\OrderStatus.cs" />
+    <Compile Include="Ecommerce\Entities\OrderStatusType.cs" />
+    <Compile Include="Ecommerce\Entities\Payment.cs" />
+    <Compile Include="Ecommerce\Entities\PaymentStatus.cs" />
+    <Compile Include="Ecommerce\Entities\Price.cs" />
+    <Compile Include="Ecommerce\Entities\Product.cs" />
+    <Compile Include="Ecommerce\Entities\ProductLink.cs" />
+    <Compile Include="Ecommerce\Entities\Shop.cs" />
+    <Compile Include="Ecommerce\Entities\Source.cs" />
+    <Compile Include="Ecommerce\Mapping\Converter.cs" />
+    <Compile Include="Ecommerce\Mapping\Serialize.cs" />
+    <Compile Include="Ecommerce\Order\EcommerceOrderRequest.cs" />
+    <Compile Include="Ecommerce\Product\EcommerceProductRequest.cs" />
+    <Compile Include="Ecommerce\Response\EcommerceApiResponse.cs" />
+    <Compile Include="Ecommerce\Response\EcommerceBatchSyncResponse.cs" />
+    <Compile Include="Ecommerce\Response\SyncStatus.cs" />
     <Compile Include="Helper\ApiHelper.cs" />
     <Compile Include="Consumer\ConsumerProvider.cs" />
     <Compile Include="Models\ProCampaignData.cs" />
@@ -62,8 +92,6 @@
       <Name>Core.Infrastructure.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ecommerce\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

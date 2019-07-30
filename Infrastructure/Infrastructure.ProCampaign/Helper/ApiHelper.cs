@@ -12,6 +12,8 @@ namespace Infrastructure.ProCampaign.Helper
 {
     public static class ApiHelper
     {
+        static HttpClientHandler httpHandler = new HttpClientHandler();
+
         public static async Task<ProCampaignResponse> PostParticipationAsync(
             string participationData, 
             ProCampaignSettings settings, 
@@ -25,7 +27,7 @@ namespace Infrastructure.ProCampaign.Helper
 
             var apiUrl = new Uri(settings.ConsumerBaseUrl, settings.ParticipationPath);
 
-            using (var client = new HttpClient())
+            using (var client = new HttpClient(httpHandler, false))
             {
                 client.BaseAddress = apiUrl;
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -80,7 +82,7 @@ namespace Infrastructure.ProCampaign.Helper
 
             var apiUrl = new Uri(settings.ApiBaseUrl, settings.DocumentPath);
 
-            using (var client = new HttpClient())
+            using (var client = new HttpClient(httpHandler, false))
             {
                 client.BaseAddress = apiUrl;
                 client.DefaultRequestHeaders.Accept.Clear();
