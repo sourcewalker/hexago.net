@@ -180,6 +180,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\FailedTransactionController.cs" />
+    <Compile Include="Controllers\ParticipantController.cs" />
+    <Compile Include="Controllers\ParticipationController.cs" />
     <Compile Include="Controllers\PingController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
@@ -222,6 +225,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FailedTransaction\" />
+    <Folder Include="Views\Participant\" />
+    <Folder Include="Views\Participation\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
