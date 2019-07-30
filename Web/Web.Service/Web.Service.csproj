@@ -216,7 +216,7 @@
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\PingController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
-    <Compile Include="Controllers\VoteController.cs" />
+    <Compile Include="Controllers\ParticipateController.cs" />
     <Compile Include="Extensions\CsvExtension.cs" />
     <Compile Include="Extensions\CsvHelper.cs" />
     <Compile Include="Extensions\CsvMediaTypeFormatter.cs" />

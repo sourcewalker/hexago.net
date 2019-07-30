@@ -1,22 +1,20 @@
 ﻿using Core.Infrastructure.Interfaces.Logging;
 using Core.Service.Interfaces;
-using Core.Shared.DTO;
 using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
-using Web.Service.Filters;
-using Web.Service.Models;
 using Web.Service.Extensions;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Formatting;
+using Web.Service.Filters;
 using Web.Service.Mapping.Helper;
+using Web.Service.Models;
 
 namespace Web.Service.Controllers
 {
@@ -212,7 +210,7 @@ namespace Web.Service.Controllers
                     }
                 }
 
-                if(endDate.TimeOfDay.TotalSeconds == 0)
+                if (endDate.TimeOfDay.TotalSeconds == 0)
                     endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 23, 59, 59);
 
                 var votes = _surveyService.ExtractParticipation(startDate, endDate);

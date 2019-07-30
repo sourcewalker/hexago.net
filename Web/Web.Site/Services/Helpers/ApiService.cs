@@ -21,9 +21,9 @@ namespace Web.Site.Services.Helpers
 
         public ApiService()
         {
-            baseUrl = new Uri(ConfigurationManager.AppSettings["Api:BaseUrl"]);
-            username = ConfigurationManager.AppSettings["Api:Username"];
-            password = ConfigurationManager.AppSettings["Api:Password"];
+            //baseUrl = new Uri(ConfigurationManager.AppSettings["Api:BaseUrl"]);
+            //username = ConfigurationManager.AppSettings["Api:Username"];
+            //password = ConfigurationManager.AppSettings["Api:Password"];
         }
 
         public async Task<string> GetPrivacyAsync()

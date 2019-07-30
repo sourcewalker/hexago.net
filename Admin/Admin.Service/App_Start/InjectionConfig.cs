@@ -36,32 +36,6 @@ namespace Admin.Service
             // OPTIONAL: Register the Autofac model binder provider.
             builder.RegisterWebApiModelBinderProvider();
 
-            // Services
-            //builder.RegisterType<VotingService>()
-            //       .As<IVotingService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<ValidationService>()
-            //       .As<IValidationService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<SurveyService>()
-            //       .As<ISurveyService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<SiteService>()
-            //       .As<ISiteService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<RetailerService>()
-            //       .As<IRetailerService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<ParticipationService>()
-            //       .As<IParticipationService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<CountryService>()
-            //       .As<ICountryService>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<ChocolateBarService>()
-            //       .As<IChocolateBarService>()
-            //       .InstancePerRequest();
-
             // Infrastructures
             //builder.RegisterType<CommunityProvider>()
             //       .As<IAccountProvider>()

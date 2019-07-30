@@ -1,16 +1,14 @@
-﻿using Swashbuckle.Swagger.Annotations;
+﻿using Admin.Service.Models;
+using Swashbuckle.Swagger.Annotations;
 using System.Dynamic;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
-using Web.Service.Filters;
-using Web.Service.Models;
 
-namespace Web.Service.Controllers
+namespace Admin.Service.Controllers
 {
     [RequireHttps]
-    [BasicAuthentication]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PingController : ApiController
     {

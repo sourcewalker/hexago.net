@@ -1,7 +1,7 @@
-﻿using Core.Shared.DTO;
-using Core.Shared.Utility;
-using Core.Infrastructure.Interfaces.Logging;
+﻿using Core.Infrastructure.Interfaces.Logging;
 using Core.Service.Interfaces;
+using Core.Shared.DTO;
+using Core.Shared.Utility;
 using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,6 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
 using Web.Service.Filters;
-using Web.Service.Mapping.Helper;
 using Web.Service.Models;
 
 namespace Web.Service.Controllers
@@ -44,10 +43,7 @@ namespace Web.Service.Controllers
         /// <param name="culture">Culture of the current request</param>
         /// <remarks>
         /// This endpoint will return :
-        ///  * ChocolateBar List
-        ///  * Retailer List
-        ///  * Place List
-        ///  * OptinText List by Retailer
+        ///  * View Model data
         /// </remarks>
         /// <response code="200">Ok</response>
         /// <response code="400">Bad request</response>
@@ -106,21 +102,19 @@ namespace Web.Service.Controllers
         /// Retrieve Participate status and retailer related prize
         /// </summary>
         /// <param name="culture">Culture of the current request</param>
-        /// <param name="retailerName">Choosen Retailer name</param>
         /// <remarks>
         /// This endpoint will return :
         ///  * ChocolateBar List
-        ///  * Choosen Retailer Details
         /// </remarks>
         /// <response code="200">Ok</response>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("prize")]
+        [System.Web.Http.Route("status")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.BadRequest, Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(ApiResponse))]
-        public IHttpActionResult GetParticipateStatusAndPrize(string retailerName, string culture)
+        public IHttpActionResult GetParticipateStatus(string culture)
         {
             dynamic expando = new ExpandoObject();
 
@@ -166,69 +160,9 @@ namespace Web.Service.Controllers
         }
 
         /// <summary>
-        /// Retrieve All chocolate Bar with status
-        /// </summary>
-        /// <param name="culture">Culture of the current request</param>
-        /// <remarks>
-        /// Return ChocolateBar List
-        /// </remarks>
-        /// <response code="200">Ok</response>
-        /// <response code="400">Bad request</response>
-        /// <response code="500">Internal Server Error</response>
-        [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("status")]
-        [SwaggerResponse(HttpStatusCode.OK, "Data contains 'Chocolates' field containing list of chocolate Bars informations", Type = typeof(ApiResponse))]
-        [SwaggerResponse(HttpStatusCode.BadRequest, "Data contains 'Error' field which will indicates the problem", Type = typeof(ApiResponse))]
-        [SwaggerResponse(HttpStatusCode.InternalServerError, "Data contains 'Error' field which will indicates the problem", Type = typeof(ApiResponse))]
-        public IHttpActionResult GetChocolates(string culture)
-        {
-            dynamic expando = new ExpandoObject();
-
-            var apiResponse = new ApiResponse
-            {
-                Success = false,
-                Message = "Bad Request",
-                Data = expando
-            };
-
-            try
-            {
-                if (culture == null)
-                {
-                    expando.Description = "Please provide culture parameter";
-
-                    _logger.LogWarn("Participate model error", "Culture parameter is missing");
-                    return Content(HttpStatusCode.BadRequest, apiResponse);
-                }
-
-                var site = _siteService.GetSiteByCulture(culture);
-
-                apiResponse.Success = true;
-                apiResponse.Message = "Participate successfull";
-                apiResponse.Data = expando;
-
-                _logger.LogTrace("Participate status retrieval", "Ok");
-
-                return Ok(apiResponse);
-            }
-            catch (Exception e)
-            {
-                expando.Error = e.Message;
-
-                apiResponse.Success = false;
-                apiResponse.Message = $"Error occured in {e.Source}";
-                apiResponse.Data = expando;
-
-                _logger.LogError(e.Message, e);
-
-                return Content(HttpStatusCode.InternalServerError, apiResponse);
-            }
-        }
-
-        /// <summary>
         /// Create a participate entry
         /// </summary>
-        /// <param name="participate">Participate related data needed</param>
+        /// <param name="participate">Participation related data needed</param>
         /// <remarks>
         /// Participation to inventor participate
         /// </remarks>
@@ -237,7 +171,7 @@ namespace Web.Service.Controllers
         /// <response code="500">Internal Server Error</response>
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("participate")]
-        [SwaggerResponse(HttpStatusCode.OK, "Data contains 'Description', 'ConsumerId', 'ParticipationId' field containing list of chocolate Bars informations", Type = typeof(ApiResponse))]
+        [SwaggerResponse(HttpStatusCode.OK, "Data contains 'Description', 'ConsumerId', 'ParticipationId' field containing participation informations", Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.BadRequest, "Data contains 'Error' field which will indicates validation error lists", Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.InternalServerError, "Data contains 'Error' field which will indicates the problem", Type = typeof(ApiResponse))]
         public async Task<IHttpActionResult> Participate([FromBody]ParticipationViewModel participate)
@@ -297,7 +231,7 @@ namespace Web.Service.Controllers
                 expando.ParticipationId = dto.Id;
 
                 apiResponse.Success = true;
-                apiResponse.Message = crmResponse.Item1 ? "Participate successfull": 
+                apiResponse.Message = crmResponse.Item1 ? "Participate successfull" :
                                             "Your participate has been considered but CRM sync has failed";
                 apiResponse.Data = expando;
 

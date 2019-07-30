@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace Admin.Service
@@ -15,7 +14,6 @@ namespace Admin.Service
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             MappingConfig.Configure();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
