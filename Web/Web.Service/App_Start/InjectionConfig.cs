@@ -69,7 +69,7 @@ namespace Web.Service
                    .InstancePerLifetimeScope();
 
             // Services
-            builder.RegisterType<Core.Service.Domain.ParticipationService>()
+            builder.RegisterType<ParticipationService>()
                    .As<IParticipationService>()
                    .InstancePerLifetimeScope();
             builder.RegisterType<ParticipantService>()

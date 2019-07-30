@@ -7,7 +7,6 @@ using Core.Infrastructure.Interfaces.Crm;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Infrastructure.Interfaces.Scheduler;
 using Core.Service.Domain;
-using Core.Service.Flow;
 using Core.Service.Interfaces;
 using Infrastructure.Community;
 using Infrastructure.Elmah;
@@ -37,38 +36,47 @@ namespace Admin.Service
             builder.RegisterWebApiModelBinderProvider();
 
             // Infrastructures
-            //builder.RegisterType<CommunityProvider>()
-            //       .As<IAccountProvider>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<ElmahProvider>()
-            //       .As<ILoggingProvider>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<HangfireProvider>()
-            //       .As<ISchedulerProvider>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<ConsumerProvider>()
-            //       .As<ICrmConsumerProvider>()
-            //       .InstancePerRequest();
+            builder.RegisterType<CommunityProvider>()
+                   .As<IAccountProvider>()
+                   .InstancePerRequest();
+            builder.RegisterType<ElmahProvider>()
+                   .As<ILoggingProvider>()
+                   .InstancePerRequest();
+            builder.RegisterType<HangfireProvider>()
+                   .As<ISchedulerProvider>()
+                   .InstancePerRequest();
+            builder.RegisterType<ConsumerProvider>()
+                   .As<ICrmConsumerProvider>()
+                   .InstancePerRequest();
 
             // DAL
-            //builder.RegisterType<ChocolateBarRepository>()
-            //       .As<IChocolateBarRepository>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<CountryRepository>()
-            //       .As<ICountryRepository>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<FailedTransactionRepository>()
-            //       .As<IFailedTransactionRepository>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<RetailerRepository>()
-            //       .As<IRetailerRepository>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<SiteRepository>()
-            //       .As<ISiteRepository>()
-            //       .InstancePerRequest();
-            //builder.RegisterType<VoteRepository>()
-            //       .As<IVoteRepository>()
-            //       .InstancePerRequest();
+            builder.RegisterType<FailedTransactionRepository>()
+                   .As<IFailedTransactionRepository>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<SiteRepository>()
+                   .As<ISiteRepository>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<ParticipationRepository>()
+                   .As<IParticipationRepository>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<ParticipantRepository>()
+                   .As<IParticipantRepository>()
+                   .InstancePerLifetimeScope();
+
+            // Services
+            builder.RegisterType<ParticipationService>()
+                   .As<IParticipationService>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<ParticipantService>()
+                   .As<IParticipantService>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<FailedTransactionService>()
+                   .As<IFailedTransactionService>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<SiteService>()
+                   .As<ISiteService>()
+                   .InstancePerLifetimeScope();
+
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
