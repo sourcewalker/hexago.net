@@ -9,6 +9,7 @@ using System.Web.Mvc;
 namespace Admin.Service.Controllers
 {
     [RequireHttps]
+    [System.Web.Http.RoutePrefix("participant")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ParticipantController : ApiController
     {

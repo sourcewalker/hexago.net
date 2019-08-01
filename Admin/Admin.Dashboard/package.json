@@ -1,9 +1,9 @@
 {
-  "name": "@coreui/coreui-free-angular-admin-template",
-  "version": "2.2.4",
-  "description": "CoreUI Free Angular 2+ Admin Template",
+  "name": "@proximity/coreui-proximity-template",
+  "version": "1.0.0",
+  "description": "Proximity UI dashboard template",
   "author": {
-    "name": "Łukasz Holeczek",
+    "name": "Irina Nalijaona Andriamifidy",
     "url": "http://holeczek.pl",
     "github": "https://github.com/mrholek",
     "twitter": "https://twitter.com/lukaszholeczek"
@@ -15,18 +15,18 @@
     }
   ],
   "homepage": "https://coreui.io/angular",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
+  "copyright": "Copyright 2019",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /Admin/",
-    "build:prod": "ng build --prod --aot --buildOptimizer --optimization --progress --base-href /Admin/",
+    "build": "ng build --base-href /Dashboard/",
+    "build:prod": "ng build --prod --aot --buildOptimizer --optimization --progress --base-href /Dashboard/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postbuild": "mkdir \".\\dist\\Admin\\bin\" && copy \".\\dist\\bin\\Elmah.dll\" \".\\dist\\Admin\\bin\\Elmah.dll\" && echo \"Build of Proximity Admin succcessful\"",
-    "postbuild:prod": "mkdir \".\\dist\\Admin\\bin\" && copy \".\\dist\\bin\\Elmah.dll\" \".\\dist\\Admin\\bin\\Elmah.dll\" && echo \"Production Build of Proximity Admin succcessful\""
+    "postbuild": "mkdir \".\\dist\\Dashboard\\bin\" && copy \".\\dist\\bin\\Elmah.dll\" \".\\dist\\Dashboard\\bin\\Elmah.dll\" && echo \"Build of Proximity Dashboard succcessful\"",
+    "postbuild:prod": "mkdir \".\\dist\\Dashboard\\bin\" && copy \".\\dist\\bin\\Elmah.dll\" \".\\dist\\Dashboard\\bin\\Elmah.dll\" && echo \"Production Build of Proximity Dashboard succcessful\""
   },
   "private": true,
   "dependencies": {

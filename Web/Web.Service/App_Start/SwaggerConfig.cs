@@ -32,8 +32,8 @@ namespace Web.Service
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "Cadbury Inventor Voting API Docs")
-                         .Description("Mondelez Cadbury Inventor Voting API Documentation for technical purpose")
+                        c.SingleApiVersion("v1", "Mondelez Website API Docs")
+                         .Description("Mondelez Microsite API Documentation for technical purpose")
                          .Contact(contact =>
                              {
                                  contact.Name("Proximity BBDO Indian Ocean");
