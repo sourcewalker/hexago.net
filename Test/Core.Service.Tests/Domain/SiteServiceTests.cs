@@ -28,10 +28,7 @@ namespace Core.Service.Tests.Domain
             _schedulerRepository = new Mock<ISchedulerProvider>();
             _siteRepository = new Mock<ISiteRepository>();
             _sut = new SiteService(
-                    _siteRepository.Object,
-                    _logger.Object,
-                    _crmProvider.Object,
-                    _schedulerRepository.Object
+                    _siteRepository.Object
                     );
             _siteDto = new SiteDto
             {

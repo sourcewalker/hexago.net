@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Core.Infrastructure.Interfaces.Logging;
+using Core.Service.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
@@ -13,7 +12,19 @@ namespace Admin.Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ParticipationController : ApiController
     {
-        // GET api/values
+        private readonly IParticipationService _participationService;
+        private readonly ILoggingProvider _logger;
+
+        public ParticipationController(
+            IParticipationService participationService,
+            ILoggingProvider logger
+            )
+        {
+            _participationService = participationService;
+            _logger = logger;
+        }
+
+        [System.Web.Http.Route("")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };

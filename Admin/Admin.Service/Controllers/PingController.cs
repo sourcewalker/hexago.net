@@ -24,7 +24,7 @@ namespace Admin.Service.Controllers
         {
             dynamic expando = new ExpandoObject();
 
-            expando.Description = $"Please go to {Request.RequestUri.AbsoluteUri}swagger for API Documentation";
+            expando.Description = $"Please go to {Request.RequestUri.AbsoluteUri}/swagger for API Documentation";
 
             var apiResponse = new ApiResponse
             {

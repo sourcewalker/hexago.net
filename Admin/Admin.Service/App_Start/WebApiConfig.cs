@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
 using System.Web.Http;
 
 namespace Admin.Service
@@ -8,6 +8,7 @@ namespace Admin.Service
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -18,11 +19,10 @@ namespace Admin.Service
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-
-            var formatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            formatter.SerializerSettings.ContractResolver =
-                new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+            config.Formatters.JsonFormatter.MediaTypeMappings
+                .Add(new System.Net.Http.Formatting.RequestHeaderMapping("Accept", "text/html",
+                              StringComparison.InvariantCultureIgnoreCase,
+                              true, "application/json"));
         }
     }
 }

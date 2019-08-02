@@ -12,17 +12,6 @@ namespace Core.DAL.EF.Repository.Implementations
 {
     public class ParticipantRepository : RepositoryBase<Participant>, IParticipantRepository
     {
-        private readonly ISiteRepository _siteRepository;
-        private readonly IParticipationRepository _participationRepository;
-
-        public ParticipantRepository(
-            ISiteRepository siteRepository, 
-            IParticipationRepository participationRepository)
-        {
-            _siteRepository = siteRepository;
-            _participationRepository = participationRepository;
-        }
-
         public IEnumerable<ParticipantDto> GetAll()
         {
             return Table?.toDtos();

@@ -1,8 +1,5 @@
 ﻿using Core.Shared.DTO;
 using Core.DAL.Interfaces;
-using Core.Infrastructure.Interfaces.Crm;
-using Core.Infrastructure.Interfaces.Logging;
-using Core.Infrastructure.Interfaces.Scheduler;
 using Core.Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,22 +9,13 @@ namespace Core.Service.Domain
     public class SiteService : ISiteService
     {
         private readonly ISiteRepository _siteRepository;
-        private readonly ILoggingProvider _logger;
-        private readonly ICrmConsumerProvider _crmProvider;
-        private readonly ISchedulerProvider _scheduler;
 
         public SiteService
         (
-            ISiteRepository siteRepository,
-            ILoggingProvider logger,
-            ICrmConsumerProvider crmProvider,
-            ISchedulerProvider scheduler
+            ISiteRepository siteRepository
         )
         {
             _siteRepository = siteRepository;
-            _logger = logger;
-            _crmProvider = crmProvider;
-            _scheduler = scheduler;
         }
 
         public bool CreateSite(SiteDto site)
