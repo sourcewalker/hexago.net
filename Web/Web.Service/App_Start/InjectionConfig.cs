@@ -6,10 +6,12 @@ using Core.Infrastructure.Interfaces.Account;
 using Core.Infrastructure.Interfaces.Crm;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Infrastructure.Interfaces.Scheduler;
+using Core.Infrastructure.Interfaces.Validator;
 using Core.Service.Domain;
 using Core.Service.Flow;
 using Core.Service.Interfaces;
 using Hangfire;
+using Infrastructure.Captcha.Provider;
 using Infrastructure.Community;
 using Infrastructure.Elmah;
 using Infrastructure.Hangfire;
@@ -52,6 +54,9 @@ namespace Web.Service
                    .InstancePerLifetimeScope();
             builder.RegisterType<ConsumerProvider>()
                    .As<ICrmConsumerProvider>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<CaptchaProvider>()
+                   .As<IFormValidatorProvider>()
                    .InstancePerLifetimeScope();
 
             // DAL

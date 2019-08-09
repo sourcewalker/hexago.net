@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Captcha\GoogleRecaptchaHelper.cs" />
     <Compile Include="Domain\SiteService.cs" />
     <Compile Include="Domain\ParticipantService.cs" />
     <Compile Include="Domain\FailedTransactionService.cs" />

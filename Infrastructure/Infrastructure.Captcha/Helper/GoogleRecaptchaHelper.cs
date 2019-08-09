@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Globalization;
 using System.Net;
 
-namespace Core.Service.Captcha
+namespace Infrastructure.Captcha.Helper
 {
     public static class GoogleRecaptchaHelper
     {
@@ -26,6 +26,7 @@ namespace Core.Service.Captcha
             using (var webClient = new WebClient())
             {
                 var jsonStr = webClient.DownloadString(apiRequest);
+
                 JToken token = JObject.Parse(jsonStr);
                 var success = token.SelectToken("success").ToString().ToLower();
 

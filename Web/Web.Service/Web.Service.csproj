@@ -309,6 +309,10 @@
       <Project>{F9A95FAC-66F5-43BA-B76D-613EEADB1DF2}</Project>
       <Name>Core.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Captcha\Infrastructure.Captcha.csproj">
+      <Project>{DF14FDD4-530F-425F-84F8-22CBB9BF9C06}</Project>
+      <Name>Infrastructure.Captcha</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.Community\Infrastructure.Community.csproj">
       <Project>{D6F1F7F9-47BF-4DAD-9B83-CFA9BF057300}</Project>
       <Name>Infrastructure.Community</Name>

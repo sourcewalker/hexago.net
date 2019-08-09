@@ -1,9 +1,9 @@
 ﻿using Core.Infrastructure.Interfaces.Logging;
 using System;
-using Core.Service.Captcha;
 using Core.Shared.Utility;
 using Core.DAL.Interfaces;
 using Core.Service.Interfaces;
+using Core.Infrastructure.Interfaces.Validator;
 
 namespace Core.Service.Flow
 {
@@ -11,13 +11,16 @@ namespace Core.Service.Flow
     {
         private readonly IParticipationRepository _participationRepository;
         private readonly ILoggingProvider _logger;
+        private readonly IFormValidatorProvider _validator;
 
         public ValidationService(
             ILoggingProvider logger, 
-            IParticipationRepository participationRepository)
+            IParticipationRepository participationRepository,
+            IFormValidatorProvider validator)
         {
             _logger = logger;
             _participationRepository = participationRepository;
+            _validator = validator;
         }
 
         public bool ValidateCaptcha(string captchaResponse)
@@ -28,7 +31,7 @@ namespace Core.Service.Flow
             var response = false;
             try
             {
-                return GoogleRecaptchaHelper.ValidateReCaptchaV2(captchaResponse);
+                return _validator.Validate(captchaResponse);
             }
             catch (Exception ex)
             {
