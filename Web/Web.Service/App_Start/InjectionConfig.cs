@@ -4,6 +4,7 @@ using Core.DAL.EF.Repository.Implementations;
 using Core.DAL.Interfaces;
 using Core.Infrastructure.Interfaces.Account;
 using Core.Infrastructure.Interfaces.Crm;
+using Core.Infrastructure.Interfaces.InstantWin;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Infrastructure.Interfaces.Scheduler;
 using Core.Infrastructure.Interfaces.Validator;
@@ -15,6 +16,7 @@ using Infrastructure.Captcha.Provider;
 using Infrastructure.Community;
 using Infrastructure.Elmah;
 using Infrastructure.Hangfire;
+using Infrastructure.InstantWin.Provider;
 using Infrastructure.ProCampaign.Consumer;
 using System.Reflection;
 using Web.Configuration.Implementations;
@@ -57,6 +59,9 @@ namespace Web.Service
                    .InstancePerLifetimeScope();
             builder.RegisterType<CaptchaProvider>()
                    .As<IFormValidatorProvider>()
+                   .InstancePerLifetimeScope();
+            builder.RegisterType<InstantWinProvider>()
+                   .As<IInstantWinMomentProvider>()
                    .InstancePerLifetimeScope();
 
             // DAL

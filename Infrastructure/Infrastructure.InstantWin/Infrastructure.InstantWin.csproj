@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B151599-2CED-4929-8C88-4D098EAA41E6}</ProjectGuid>
+    <ProjectGuid>{D4515A7F-E298-4ED9-917B-826A230E0408}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Infrastructure.Interfaces</RootNamespace>
-    <AssemblyName>Core.Infrastructure.Interfaces</AssemblyName>
+    <RootNamespace>Infrastructure.InstantWin</RootNamespace>
+    <AssemblyName>Infrastructure.InstantWin</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,28 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\LoginResult.cs" />
-    <Compile Include="Account\IAccountProvider.cs" />
-    <Compile Include="Account\Login.cs" />
-    <Compile Include="Caching\ICacheProvider.cs" />
-    <Compile Include="Crm\CrmData.cs" />
-    <Compile Include="Crm\ICrmAuthenticationProvider.cs" />
-    <Compile Include="Crm\ICrmCommerceProvider.cs" />
-    <Compile Include="Crm\ICrmConsumerProvider.cs" />
-    <Compile Include="InstantWin\Allocable.cs" />
-    <Compile Include="InstantWin\IInstantWinMomentProvider.cs" />
-    <Compile Include="Logging\ILoggingProvider.cs" />
-    <Compile Include="Scheduler\CronEnum.cs" />
-    <Compile Include="Scheduler\ISchedulerProvider.cs" />
-    <Compile Include="UserData\IUserDataProvider.cs" />
+    <Compile Include="Allocator\Algorithms\BlindAlgorithm.cs" />
+    <Compile Include="Allocator\Algorithms\FairAlgorithm.cs" />
+    <Compile Include="Allocator\Algorithms\WeightedAlgorithm.cs" />
+    <Compile Include="Allocator\Factory\AllocatorFactory.cs" />
+    <Compile Include="Configuration\ProviderConfiguration.cs" />
+    <Compile Include="Enums\AllocatorAlgorithms.cs" />
+    <Compile Include="Enums\GeneratorAlgorithms.cs" />
+    <Compile Include="Enums\GeneratorLimitOptions.cs" />
+    <Compile Include="Generator\Algorithms\DivideAndConquerAlgorithm.cs" />
+    <Compile Include="Generator\Factory\GeneratorFactory.cs" />
+    <Compile Include="Interfaces\IAllocator.cs" />
+    <Compile Include="Interfaces\IGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserData\User.cs" />
-    <Compile Include="Validator\IFormValidatorProvider.cs" />
+    <Compile Include="Provider\InstantWinProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Common\Core.Shared.csproj">
-      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
-      <Name>Core.Shared</Name>
+    <ProjectReference Include="..\..\Core\Core.Infrastructure.Interfaces\Core.Infrastructure.Interfaces.csproj">
+      <Project>{1B151599-2CED-4929-8C88-4D098EAA41E6}</Project>
+      <Name>Core.Infrastructure.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

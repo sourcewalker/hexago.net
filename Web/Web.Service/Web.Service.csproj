@@ -325,6 +325,10 @@
       <Project>{4D62FF06-58C3-4A0A-9737-FC71D7C4F051}</Project>
       <Name>Infrastructure.Hangfire</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.InstantWin\Infrastructure.InstantWin.csproj">
+      <Project>{D4515A7F-E298-4ED9-917B-826A230E0408}</Project>
+      <Name>Infrastructure.InstantWin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.ProCampaign\Infrastructure.ProCampaign.csproj">
       <Project>{C3D4F1DD-9ED7-40CD-8BA2-812E859EA523}</Project>
       <Name>Infrastructure.ProCampaign</Name>
