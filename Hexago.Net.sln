@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Model", "Core\Core.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Infrastructure.Interfaces", "Core\Core.Infrastructure.Interfaces\Core.Infrastructure.Interfaces.csproj", "{1B151599-2CED-4929-8C88-4D098EAA41E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Shared", "Core\Core.Common\Core.Shared.csproj", "{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Shared", "Core\Core.Shared\Core.Shared.csproj", "{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DAL.Interfaces", "Core\Core.DAL.Interfaces\Core.DAL.Interfaces.csproj", "{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}"
 EndProject

@@ -5,7 +5,7 @@ namespace Core.Infrastructure.Interfaces.InstantWin
 {
     public interface IInstantWinMomentProvider
     {
-        IList<DateTime> GenerateWinningMoments();
+        IList<DateTimeOffset> GenerateWinningMoments();
 
         IList<(Guid Id, string Name)> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber);
     }
