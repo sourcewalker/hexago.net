@@ -9,7 +9,7 @@ namespace Infrastructure.InstantWin.Provider
 {
     public class InstantWinProvider : IInstantWinMomentProvider
     {
-        public IList<DateTime> GenerateWinningMoments()
+        public IList<DateTimeOffset> GenerateWinningMoments()
         {
             var generator = GeneratorFactory.Create(ProviderConfiguration.Generator.algorithm);
             return generator.Generate();

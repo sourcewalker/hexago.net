@@ -233,10 +233,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.Common\Core.Shared.csproj">
-      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
-      <Name>Core.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\Core.DAL.Interfaces\Core.DAL.Interfaces.csproj">
       <Project>{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}</Project>
       <Name>Core.DAL.Interfaces</Name>
@@ -256,6 +252,10 @@
     <ProjectReference Include="..\..\Core\Core.Service\Core.Service.csproj">
       <Project>{F9A95FAC-66F5-43BA-B76D-613EEADB1DF2}</Project>
       <Name>Core.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Shared\Core.Shared.csproj">
+      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
+      <Name>Core.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.Community\Infrastructure.Community.csproj">
       <Project>{D6F1F7F9-47BF-4DAD-9B83-CFA9BF057300}</Project>

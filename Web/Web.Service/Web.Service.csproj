@@ -285,7 +285,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.Common\Core.Shared.csproj">
+    <ProjectReference Include="..\..\Core\Core.Shared\Core.Shared.csproj">
       <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>

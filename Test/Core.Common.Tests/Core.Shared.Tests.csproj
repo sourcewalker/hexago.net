@@ -66,13 +66,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.Common\Core.Shared.csproj">
-      <Project>{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}</Project>
-      <Name>Core.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\Core.Model\Core.Model.csproj">
       <Project>{FE3A179D-AC9B-4525-A133-2BD00369F383}</Project>
       <Name>Core.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Shared\Core.Shared.csproj">
+      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
+      <Name>Core.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

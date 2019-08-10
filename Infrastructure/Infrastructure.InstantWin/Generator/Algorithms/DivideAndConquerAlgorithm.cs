@@ -9,7 +9,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
 {
     public class DivideAndConquerAlgorithm : IGenerator
     {
-        public IList<DateTime> Generate()
+        public IList<DateTimeOffset> Generate()
         {
             var startDate = ProviderConfiguration.Campaign.StartDate;
             var endDate = ProviderConfiguration.Campaign.EndDate;
@@ -37,7 +37,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
                                     endDate :
                                     (firstIntervalDate + intervalLength);
 
-            var dateList = new List<DateTime>();
+            var dateList = new List<DateTimeOffset>();
             var random = new Random();
             byte[] bytes = new byte[8];
             var randomAddition = new Random();
@@ -143,7 +143,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
         private DateTime EnsureDifferentDate(
             double ranDouble,
             DateTime currentDatetime,
-            IEnumerable<DateTime> dateList,
+            IEnumerable<DateTimeOffset> dateList,
             DateTime firstDate,
             DateTime lastDate)
         {

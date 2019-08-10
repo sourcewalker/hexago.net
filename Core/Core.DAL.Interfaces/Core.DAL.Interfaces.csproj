@@ -48,8 +48,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Common\Core.Shared.csproj">
-      <Project>{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}</Project>
+    <ProjectReference Include="..\Core.Shared\Core.Shared.csproj">
+      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>
   </ItemGroup>

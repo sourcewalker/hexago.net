@@ -5,6 +5,6 @@ namespace Infrastructure.InstantWin.Interfaces
 {
     public interface IGenerator
     {
-        IList<DateTime> Generate();
+        IList<DateTimeOffset> Generate();
     }
 }
