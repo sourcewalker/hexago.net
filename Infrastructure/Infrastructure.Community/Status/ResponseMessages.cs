@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Web.Service.Kuhmunity.Utility
+﻿namespace Infrastructure.Community.Status
 {
-    /// <summary>
-    /// Response messages to send to front
-    /// </summary>
-    public static class ResponseMessages
+    public struct ResponseMessages
     {
 
         public const string INVALID_LOCALE = "INVALID_LOCALE";
         public const string MISSING_LOCALE = "MISSING_LOCALE";
+
         public const string INVALID_PARTICIPATION_ID = "INVALID_PARTICIPATION_ID";
         public const string MISSING_PARTICIPATION_ID = "MISSING_PARTICIPATION_ID";
 
@@ -29,6 +22,7 @@ namespace Web.Service.Kuhmunity.Utility
 
         public const string MISSING_EMAIL = "MISSING_EMAIL";
         public const string INVALID_EMAIL = "INVALID_EMAIL";
+
         public const string MISSING_CAPTCHA = "MISSING_CAPTCHA";
         public const string INVALID_CAPTCHA = "INVALID_CAPTCHA";
         public const string TERMS_NOT_ACCEPTED = "TERMS_NOT_ACCEPTED";

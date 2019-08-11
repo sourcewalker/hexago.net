@@ -1,22 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Xml;
+﻿using Infrastructure.Community.Models;
+using Infrastructure.Community.Status;
+using Newtonsoft.Json;
 using SWEET.WebProjects.Brands.Milka.Kuhmunity.DTO;
-using Web.Service.Kuhmunity.Interface;
-using Web.Service.Kuhmunity.Models;
-using Web.Service.Kuhmunity.Utility;
+using System;
+using System.Net;
 
-namespace Web.Service.Kuhmunity
+namespace Infrastructure.Community.Helper
 {
-    public class KuhmunityLogoutModule : KuhmunityBase, IResponseBase
+    public static class KuhmunityRegistrationHelper
     {
-        public Response GetResponse()
+        public static KuhmunityResponse Register(
+            string apiUrl,
+            UserRegisterInput kuhmunityProfileData)
         {
-            Response response = new Response
+            KuhmunityResponse response = new KuhmunityResponse
             {
                 IsSuccessful = false
             };
@@ -25,17 +22,17 @@ namespace Web.Service.Kuhmunity
             {
                 try
                 {
-                    var logoutData = new UserLogoutInput();
-                    var data = JsonConvert.SerializeObject(logoutData);
+                    var data = JsonConvert.SerializeObject(kuhmunityProfileData);
                     client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    var apiResponse = client.UploadString(new Uri(GetKuhmunityApiEndpoint() + "Logout?output=json"), "POST", data);
+                    var apiResponse = client.UploadString(new Uri(apiUrl + "Register?output=json"), "POST", data);
 
-                    if (!String.IsNullOrWhiteSpace(apiResponse))
+                    if (!string.IsNullOrWhiteSpace(apiResponse))
                     {
-                        var receivedData = JsonConvert.DeserializeObject<UserOperationResultDTO>(apiResponse);
+                        var receivedData = JsonConvert.DeserializeObject<UserResultDTO>(apiResponse);
                         if (receivedData.Status.Equals("OK"))
                         {
                             response.IsSuccessful = true;
+                            response.Body = receivedData.UserId;
                         }
                         else
                         {

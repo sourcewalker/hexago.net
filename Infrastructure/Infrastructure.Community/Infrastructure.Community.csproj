@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="SWEET.WebProjects.Brands.Milka.Kuhmunity.DTO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librairies\SWEET.WebProjects.Brands.Milka.Kuhmunity.DTO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,12 +48,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommunityProvider.cs" />
+    <Compile Include="Helper\KuhmunityProfileHelper.cs" />
+    <Compile Include="Helper\KuhmunityRegistrationHelper.cs" />
+    <Compile Include="Interfaces\IValidateProvider.cs" />
+    <Compile Include="KuhmunityProvider.cs" />
+    <Compile Include="Helper\KuhmunityLoginHelper.cs" />
+    <Compile Include="Interfaces\ILoginProvider.cs" />
+    <Compile Include="Interfaces\IProfileProvider.cs" />
+    <Compile Include="Interfaces\IRegistrationProvider.cs" />
+    <Compile Include="Models\KuhmunityBase.cs" />
+    <Compile Include="Models\KuhmunityCookie.cs" />
+    <Compile Include="Login\KuhmunityLoginModule.cs" />
+    <Compile Include="Login\KuhmunityLogoutModule.cs" />
+    <Compile Include="Models\KuhmunityResponse.cs" />
+    <Compile Include="Profile\KuhmunityProfileModule.cs" />
+    <Compile Include="Registration\KuhmunityRegistrationModule.cs" />
+    <Compile Include="Status\ResponseMessages.cs" />
+    <Compile Include="Status\ResponseStatus.cs" />
+    <Compile Include="Validation\KuhmunityInputValidationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core.Infrastructure.Interfaces\Core.Infrastructure.Interfaces.csproj">
-      <Project>{1B151599-2CED-4929-8C88-4D098EAA41E6}</Project>
+      <Project>{1b151599-2ced-4929-8c88-4d098eaa41e6}</Project>
       <Name>Core.Infrastructure.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Core.Shared\Core.Shared.csproj">
@@ -54,5 +78,9 @@
       <Name>Core.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Librairies\SWEET.WebProjects.Brands.Milka.Kuhmunity.DTO.dll" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

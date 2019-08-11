@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Web.Service.Kuhmunity
+﻿namespace Infrastructure.Community.Models
 {
     public class KuhmunityCookie
     {
@@ -20,7 +15,6 @@ namespace Web.Service.Kuhmunity
             foreach (string item in components)
             {
                 var itemParts = item.Split('=');
-                //cookieItems.Add(itemParts[0], itemParts[1]);
                 typeof(KuhmunityCookie).GetProperty(itemParts[0]).SetValue(newCookie, itemParts[1]);
 
             }
@@ -38,7 +32,7 @@ namespace Web.Service.Kuhmunity
                 $"SessionBackgroundUrl={SessionBackgroundUrl}"
             };
 
-            return String.Join("&", cookieValue);
+            return string.Join("&", cookieValue);
         }
     }
 }

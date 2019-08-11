@@ -43,12 +43,13 @@
   <ItemGroup>
     <Compile Include="Account\LoginResult.cs" />
     <Compile Include="Account\IAccountProvider.cs" />
-    <Compile Include="Account\Login.cs" />
+    <Compile Include="Account\LoginInfo.cs" />
+    <Compile Include="Account\RegisterInfo.cs" />
     <Compile Include="Caching\ICacheProvider.cs" />
-    <Compile Include="Crm\CrmData.cs" />
-    <Compile Include="Crm\ICrmAuthenticationProvider.cs" />
-    <Compile Include="Crm\ICrmCommerceProvider.cs" />
-    <Compile Include="Crm\ICrmConsumerProvider.cs" />
+    <Compile Include="CRM\CrmData.cs" />
+    <Compile Include="CRM\ICrmAuthenticationProvider.cs" />
+    <Compile Include="CRM\ICrmCommerceProvider.cs" />
+    <Compile Include="CRM\ICrmConsumerProvider.cs" />
     <Compile Include="DAL\IFailedTransactionRepository.cs" />
     <Compile Include="DAL\IParticipantRepository.cs" />
     <Compile Include="DAL\IParticipationRepository.cs" />

@@ -1,28 +1,19 @@
-﻿using System;
+﻿using Infrastructure.Community.Models;
+using Infrastructure.Community.Status;
 using Newtonsoft.Json;
-using System.Net;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using SWEET.WebProjects.Brands.Milka.Kuhmunity.DTO;
-using Web.Service.Kuhmunity.Interface;
-using Web.Service.Kuhmunity.Models;
-using Web.Service.Kuhmunity.Utility;
-using Web.Configuration.Interfaces;
+using System;
+using System.Net;
 
-namespace Web.Service.Kuhmunity
+namespace Infrastructure.Community.Helper
 {
-    public class KuhmunityRegistrationModule : KuhmunityBase, IResponseBase
+    public static class KuhmunityProfileHelper
     {
-        UserRegisterInput KuhmunityProfileData;
-        public KuhmunityRegistrationModule(UserRegisterInput kuhmunityData)
+        public static KuhmunityResponse GetProfile(
+            string apiUrl,
+            UserOperationInput userOperationData)
         {
-            KuhmunityProfileData = kuhmunityData;
-        }
-
-        public Response GetResponse()
-        {
-            Response response = new Response
+            KuhmunityResponse response = new KuhmunityResponse
             {
                 IsSuccessful = false
             };
@@ -31,17 +22,17 @@ namespace Web.Service.Kuhmunity
             {
                 try
                 {
-                    var data = JsonConvert.SerializeObject(KuhmunityProfileData);
+                    var data = JsonConvert.SerializeObject(userOperationData);
                     client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    var apiResponse = client.UploadString(new Uri(GetKuhmunityApiEndpoint() + "Register?output=json"), "POST", data);
+                    var apiResponse = client.UploadString(new Uri(apiUrl + "GetUserProfile?output=json"), "POST", data);
 
                     if (!String.IsNullOrWhiteSpace(apiResponse))
                     {
-                        var receivedData = JsonConvert.DeserializeObject<UserResultDTO>(apiResponse);
+                        var receivedData = JsonConvert.DeserializeObject<GetUserDetailResultDTO>(apiResponse);
                         if (receivedData.Status.Equals("OK"))
                         {
                             response.IsSuccessful = true;
-                            response.Body = receivedData.UserId;
+                            response.Body = receivedData.UserDetail;
                         }
                         else
                         {

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Web.Service.Kuhmunity.Interface;
-using Web.Service.Kuhmunity.Models;
-using Web.Service.Kuhmunity.Utility;
+﻿using Infrastructure.Community.Interfaces;
+using Infrastructure.Community.Models;
+using Infrastructure.Community.Status;
 
-namespace Web.Service.Kuhmunity.Validation
+namespace Infrastructure.Community.Validation
 {
-    public class KuhmunityInputValidationModule : IResponseBase
+    public class KuhmunityInputValidationModule: IValidateProvider
     {
         public string Nickname { get; set; }
         public string Password { get; set; }
@@ -16,14 +12,14 @@ namespace Web.Service.Kuhmunity.Validation
         public bool TermsAccepted { get; set; }
         public bool PrivacyAccepted { get; set; }
 
-        public Response GetResponse()
+        public KuhmunityResponse Validate()
         {
-            Response response = new Response
+            KuhmunityResponse response = new KuhmunityResponse
             {
                 IsSuccessful = false
             };
 
-            if (String.IsNullOrWhiteSpace(Nickname))
+            if (string.IsNullOrWhiteSpace(Nickname))
             {
                 response.Message = ResponseMessages.MISSING_NICKNAME;
 
@@ -44,7 +40,7 @@ namespace Web.Service.Kuhmunity.Validation
                 return response;
             }
 
-            if (String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(PasswordReconfirm))
+            if (string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(PasswordReconfirm))
             {
                 response.Message = ResponseMessages.MISSING_PASSWORD;
 
