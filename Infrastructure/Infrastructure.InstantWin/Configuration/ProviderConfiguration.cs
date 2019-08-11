@@ -7,15 +7,15 @@ namespace Infrastructure.InstantWin.Configuration
     {
         public struct Campaign
         {
-            public static DateTime StartDate = new DateTime(2019, 07, 29, 0, 0, 0);
+            public static DateTimeOffset StartDate = new DateTimeOffset(2019, 07, 29, 0, 0, 0, TimeSpan.FromHours(1));
 
-            public static DateTime EndDate = new DateTime(2019, 09, 01, 23, 59, 59);
-
-            // DateTime just for storing the time, date information is not relevant
-            public static DateTime OpenTime = new DateTime(2019, 07, 29, 8, 0, 0);
+            public static DateTimeOffset EndDate = new DateTimeOffset(2019, 09, 01, 23, 59, 59, TimeSpan.FromHours(1));
 
             // DateTime just for storing the time, date information is not relevant
-            public static DateTime CloseTime = new DateTime(2019, 07, 29, 21, 0, 0);
+            public static DateTimeOffset OpenTime = new DateTimeOffset(2019, 07, 29, 8, 0, 0, TimeSpan.FromHours(1));
+
+            // DateTime just for storing the time, date information is not relevant
+            public static DateTimeOffset CloseTime = new DateTimeOffset(2019, 07, 29, 21, 0, 0, TimeSpan.FromHours(1));
         }
 
         public struct Generator

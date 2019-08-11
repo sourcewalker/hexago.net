@@ -1,10 +1,10 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using Core.DAL.EF.Repository.Implementations;
-using Core.DAL.Interfaces;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Service.Domain;
 using Core.Service.Interfaces;
+using Infrastructure.DAL.EF.Repository.Implementations;
 using Infrastructure.Elmah;
 using System.Reflection;
 using System.Web.Http;

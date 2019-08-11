@@ -49,6 +49,10 @@
     <Compile Include="Crm\ICrmAuthenticationProvider.cs" />
     <Compile Include="Crm\ICrmCommerceProvider.cs" />
     <Compile Include="Crm\ICrmConsumerProvider.cs" />
+    <Compile Include="DAL\IFailedTransactionRepository.cs" />
+    <Compile Include="DAL\IParticipantRepository.cs" />
+    <Compile Include="DAL\IParticipationRepository.cs" />
+    <Compile Include="DAL\ISiteRepository.cs" />
     <Compile Include="InstantWin\Allocable.cs" />
     <Compile Include="InstantWin\IInstantWinMomentProvider.cs" />
     <Compile Include="Logging\ILoggingProvider.cs" />
@@ -60,11 +64,10 @@
     <Compile Include="Validator\IFormValidatorProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Common\Core.Shared.csproj">
+    <ProjectReference Include="..\Core.Shared\Core.Shared.csproj">
       <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -37,8 +37,7 @@ namespace Infrastructure.InstantWin.Allocator.Algorithms
             return list
                     .Select(
                       (value, index) =>
-                        new
-                        {
+                        new{
                             Index = index,
                             Value = value,
                             Distance = Math.Abs(index - randomIndex)

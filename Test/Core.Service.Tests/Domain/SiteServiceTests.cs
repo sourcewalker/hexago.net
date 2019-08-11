@@ -1,12 +1,12 @@
 ﻿using System;
 using Core.Shared.DTO;
-using Core.DAL.Interfaces;
 using Core.Infrastructure.Interfaces.Crm;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Infrastructure.Interfaces.Scheduler;
 using Core.Service.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Core.Infrastructure.Interfaces.DAL;
 
 namespace Core.Service.Tests.Domain
 {

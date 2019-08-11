@@ -9,7 +9,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
 {
     public class DivideAndConquerAlgorithm : IGenerator
     {
-        public IList<DateTime> Generate()
+        public IList<DateTimeOffset> Generate()
         {
             var startDate = ProviderConfiguration.Campaign.StartDate;
             var endDate = ProviderConfiguration.Campaign.EndDate;
@@ -37,7 +37,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
                                     endDate :
                                     (firstIntervalDate + intervalLength);
 
-            var dateList = new List<DateTime>();
+            var dateList = new List<DateTimeOffset>();
             var random = new Random();
             byte[] bytes = new byte[8];
             var randomAddition = new Random();
@@ -80,10 +80,10 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             }
         }
 
-        private (DateTime nextIntervalStart, DateTime nextIntervalEnd) SwitchToNextInterval(
-            DateTime previousIntervalEnd,
+        private (DateTimeOffset nextIntervalStart, DateTimeOffset nextIntervalEnd) SwitchToNextInterval(
+            DateTimeOffset previousIntervalEnd,
             TimeSpan intervalLength,
-            DateTime EndLimit)
+            DateTimeOffset EndLimit)
         {
             var openHour = ProviderConfiguration.Campaign.OpenTime;
             var closeHour = ProviderConfiguration.Campaign.CloseTime;
@@ -114,7 +114,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             return (nextIntervalStart, nextIntervalEnd);
         }
 
-        private DateTime GenerateRandomDateBetweenInterval(byte[] bytes, DateTime firstDate, DateTime lastDate)
+        private DateTimeOffset GenerateRandomDateBetweenInterval(byte[] bytes, DateTimeOffset firstDate, DateTimeOffset lastDate)
         {
             var openHour = ProviderConfiguration.Campaign.OpenTime;
             var closeHour = ProviderConfiguration.Campaign.CloseTime;
@@ -140,12 +140,12 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             return new TimeSpan(ranInt64);
         }
 
-        private DateTime EnsureDifferentDate(
+        private DateTimeOffset EnsureDifferentDate(
             double ranDouble,
-            DateTime currentDatetime,
-            IEnumerable<DateTime> dateList,
-            DateTime firstDate,
-            DateTime lastDate)
+            DateTimeOffset currentDatetime,
+            IEnumerable<DateTimeOffset> dateList,
+            DateTimeOffset firstDate,
+            DateTimeOffset lastDate)
         {
             if (!dateList.Contains(currentDatetime))
             {

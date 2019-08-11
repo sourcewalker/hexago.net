@@ -1,7 +1,7 @@
 ﻿using Core.Infrastructure.Interfaces.Logging;
 using System;
 using Core.Shared.Utility;
-using Core.DAL.Interfaces;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Service.Interfaces;
 using Core.Infrastructure.Interfaces.Validator;
 

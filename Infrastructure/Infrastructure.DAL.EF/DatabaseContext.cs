@@ -6,7 +6,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using Core.Shared.Configuration;
 using System.Linq;
 
-namespace Core.DAL.EF
+namespace Infrastructure.DAL.EF
 {
     public class DatabaseContext : DbContext
     {

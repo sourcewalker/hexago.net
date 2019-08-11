@@ -1,5 +1,5 @@
 ﻿using Core.Shared.DTO;
-using Core.DAL.Interfaces;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Service.Interfaces;
 using System;
 using System.Collections.Generic;

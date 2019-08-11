@@ -1,10 +1,5 @@
-﻿using Core.Shared.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Infrastructure.Interfaces.UserData;
+﻿using Core.Infrastructure.Interfaces.UserData;
+using Core.Shared.Configuration;
 
 namespace Core.Infrastructure.Interfaces.Account
 {

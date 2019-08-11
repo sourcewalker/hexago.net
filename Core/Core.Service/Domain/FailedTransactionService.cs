@@ -1,6 +1,6 @@
 ﻿using System;
 using Core.Shared.DTO;
-using Core.DAL.Interfaces;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Service.Interfaces;
 
 namespace Core.Service.Domain
