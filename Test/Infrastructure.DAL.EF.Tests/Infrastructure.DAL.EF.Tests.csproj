@@ -58,9 +58,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.DAL\Core.DAL.EF.csproj">
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.DAL.EF\Infrastructure.DAL.EF.csproj">
       <Project>{7202C8DA-FF00-47D9-9F91-0969677DA7A8}</Project>
-      <Name>Core.DAL.EF</Name>
+      <Name>Infrastructure.DAL.EF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

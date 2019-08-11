@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Shared.DTO;
 using Core.Shared.Mapping.Helper;
-using Core.DAL.EF.Repository.Base;
-using Core.DAL.Interfaces;
 using Core.Model;
+using Infrastructure.DAL.EF.Repository.Base;
+using Core.Infrastructure.Interfaces.DAL;
 
-namespace Core.DAL.EF.Repository.Implementations
+namespace Infrastructure.DAL.EF.Repository.Implementations
 {
     public class ParticipationRepository : RepositoryBase<Participation>, IParticipationRepository
     {

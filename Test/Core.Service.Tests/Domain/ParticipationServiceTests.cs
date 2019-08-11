@@ -1,8 +1,8 @@
-﻿using Core.DAL.Interfaces;
+﻿using Moq;
+using System;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Service.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System;
 
 namespace Core.Service.Tests.Domain
 {

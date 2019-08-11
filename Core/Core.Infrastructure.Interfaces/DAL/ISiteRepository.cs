@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Core.DAL.Interfaces
+namespace Core.Infrastructure.Interfaces.DAL
 {
     public interface ISiteRepository
     {

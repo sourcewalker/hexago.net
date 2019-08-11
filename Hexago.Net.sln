@@ -7,15 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2605BC8F-E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service", "Core\Core.Service\Core.Service.csproj", "{F9A95FAC-66F5-43BA-B76D-613EEADB1DF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DAL.EF", "Core\Core.DAL\Core.DAL.EF.csproj", "{7202C8DA-FF00-47D9-9F91-0969677DA7A8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Model", "Core\Core.Model\Core.Model.csproj", "{FE3A179D-AC9B-4525-A133-2BD00369F383}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Infrastructure.Interfaces", "Core\Core.Infrastructure.Interfaces\Core.Infrastructure.Interfaces.csproj", "{1B151599-2CED-4929-8C88-4D098EAA41E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Shared", "Core\Core.Shared\Core.Shared.csproj", "{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DAL.Interfaces", "Core\Core.DAL.Interfaces\Core.DAL.Interfaces.csproj", "{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service.Interfaces", "Core\Core.Service.Interfaces\Core.Service.Interfaces.csproj", "{88505D97-F9BD-4F51-B488-ACECB9180427}"
 EndProject
@@ -28,8 +24,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{3025F822-4F07-4900-A51C-076BEE9C0DDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service.Tests", "Test\Core.Service.Tests\Core.Service.Tests.csproj", "{5AA767AE-084A-4AD1-A2BE-B97412C1A944}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DAL.EF.Tests", "Test\Core.DAL.Tests\Core.DAL.EF.Tests.csproj", "{6590712E-B3F2-4E07-A0EB-357772695906}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Shared.Tests", "Test\Core.Common.Tests\Core.Shared.Tests.csproj", "{561617E5-A86F-458E-B08E-16072E561C55}"
 EndProject
@@ -45,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Service", "Admin\Admi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1CF28B22-BE6A-4E96-A52B-0D82E89B802F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.DAL.EF", "Infrastructure\Infrastructure.DAL.EF\Infrastructure.DAL.EF.csproj", "{7202C8DA-FF00-47D9-9F91-0969677DA7A8}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.ProCampaign", "Infrastructure\Infrastructure.ProCampaign\Infrastructure.ProCampaign.csproj", "{C3D4F1DD-9ED7-40CD-8BA2-812E859EA523}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Elmah", "Infrastructure\Infrastructure.Elmah\Infrastructure.Elmah.csproj", "{6E47071A-733B-47B6-BDCD-E686214BE6FF}"
@@ -52,6 +48,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Hangfire", "Infrastructure\Infrastructure.Hangfire\Infrastructure.Hangfire.csproj", "{4D62FF06-58C3-4A0A-9737-FC71D7C4F051}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Community", "Infrastructure\Infrastructure.Community\Infrastructure.Community.csproj", "{D6F1F7F9-47BF-4DAD-9B83-CFA9BF057300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.DAL.EF.Tests", "Test\Infrastructure.DAL.EF.Tests\Infrastructure.DAL.EF.Tests.csproj", "{6590712E-B3F2-4E07-A0EB-357772695906}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Community.Tests", "Test\Infrastructure.Community.Tests\Infrastructure.Community.Tests.csproj", "{ADA1232A-7F47-43FE-AE82-33C2346CE362}"
 EndProject
@@ -96,7 +94,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Captcha.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.InstantWin.Tests", "Test\Infrastructure.InstantWin.Tests\Infrastructure.InstantWin.Tests.csproj", "{8B5C5CED-1CF5-4E3C-B63B-EB981F7056A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Resources", "Web\Web.Resources\Web.Resources.csproj", "{B81E4106-6F72-40F7-9BC3-874CEAAA46CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Resources", "Web\Web.Resources\Web.Resources.csproj", "{B81E4106-6F72-40F7-9BC3-874CEAAA46CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -146,14 +144,6 @@ Global
 		{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}.Staging|Any CPU.ActiveCfg = Release|Any CPU
 		{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}.Staging|Any CPU.Build.0 = Release|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Production|Any CPU.ActiveCfg = Release|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Production|Any CPU.Build.0 = Release|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Staging|Any CPU.ActiveCfg = Release|Any CPU
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}.Staging|Any CPU.Build.0 = Release|Any CPU
 		{88505D97-F9BD-4F51-B488-ACECB9180427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88505D97-F9BD-4F51-B488-ACECB9180427}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88505D97-F9BD-4F51-B488-ACECB9180427}.Production|Any CPU.ActiveCfg = Release|Any CPU
@@ -376,11 +366,10 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F9A95FAC-66F5-43BA-B76D-613EEADB1DF2} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
-		{7202C8DA-FF00-47D9-9F91-0969677DA7A8} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
+		{7202C8DA-FF00-47D9-9F91-0969677DA7A8} = {1CF28B22-BE6A-4E96-A52B-0D82E89B802F}
 		{FE3A179D-AC9B-4525-A133-2BD00369F383} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
 		{1B151599-2CED-4929-8C88-4D098EAA41E6} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
 		{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
-		{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
 		{88505D97-F9BD-4F51-B488-ACECB9180427} = {2605BC8F-EE76-4148-B353-95CEC14A8F0F}
 		{41B1BD19-AEE8-47AF-88A6-934355500BDE} = {2E743523-5DED-446F-A8EA-4606EA5B60A2}
 		{B6BF0D07-7AB4-4244-A2B0-3F8EE9CA1914} = {2E743523-5DED-446F-A8EA-4606EA5B60A2}

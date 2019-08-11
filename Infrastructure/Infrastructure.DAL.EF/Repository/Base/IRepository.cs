@@ -1,7 +1,7 @@
 ﻿using Core.Model;
 using System.Collections.Generic;
 
-namespace Core.DAL.EF.Repository.Base
+namespace Infrastructure.DAL.EF.Repository.Base
 {
     public interface IRepository<TEntity, TId>
         where TEntity : EntityBase<TId>

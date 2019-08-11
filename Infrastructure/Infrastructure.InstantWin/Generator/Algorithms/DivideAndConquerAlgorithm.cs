@@ -80,10 +80,10 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             }
         }
 
-        private (DateTime nextIntervalStart, DateTime nextIntervalEnd) SwitchToNextInterval(
-            DateTime previousIntervalEnd,
+        private (DateTimeOffset nextIntervalStart, DateTimeOffset nextIntervalEnd) SwitchToNextInterval(
+            DateTimeOffset previousIntervalEnd,
             TimeSpan intervalLength,
-            DateTime EndLimit)
+            DateTimeOffset EndLimit)
         {
             var openHour = ProviderConfiguration.Campaign.OpenTime;
             var closeHour = ProviderConfiguration.Campaign.CloseTime;
@@ -114,7 +114,7 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             return (nextIntervalStart, nextIntervalEnd);
         }
 
-        private DateTime GenerateRandomDateBetweenInterval(byte[] bytes, DateTime firstDate, DateTime lastDate)
+        private DateTimeOffset GenerateRandomDateBetweenInterval(byte[] bytes, DateTimeOffset firstDate, DateTimeOffset lastDate)
         {
             var openHour = ProviderConfiguration.Campaign.OpenTime;
             var closeHour = ProviderConfiguration.Campaign.CloseTime;
@@ -140,12 +140,12 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             return new TimeSpan(ranInt64);
         }
 
-        private DateTime EnsureDifferentDate(
+        private DateTimeOffset EnsureDifferentDate(
             double ranDouble,
-            DateTime currentDatetime,
+            DateTimeOffset currentDatetime,
             IEnumerable<DateTimeOffset> dateList,
-            DateTime firstDate,
-            DateTime lastDate)
+            DateTimeOffset firstDate,
+            DateTimeOffset lastDate)
         {
             if (!dateList.Contains(currentDatetime))
             {

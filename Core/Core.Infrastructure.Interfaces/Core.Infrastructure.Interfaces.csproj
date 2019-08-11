@@ -49,6 +49,10 @@
     <Compile Include="Crm\ICrmAuthenticationProvider.cs" />
     <Compile Include="Crm\ICrmCommerceProvider.cs" />
     <Compile Include="Crm\ICrmConsumerProvider.cs" />
+    <Compile Include="DAL\IFailedTransactionRepository.cs" />
+    <Compile Include="DAL\IParticipantRepository.cs" />
+    <Compile Include="DAL\IParticipationRepository.cs" />
+    <Compile Include="DAL\ISiteRepository.cs" />
     <Compile Include="InstantWin\Allocable.cs" />
     <Compile Include="InstantWin\IInstantWinMomentProvider.cs" />
     <Compile Include="Logging\ILoggingProvider.cs" />

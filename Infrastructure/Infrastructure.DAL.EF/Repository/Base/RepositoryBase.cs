@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 
-namespace Core.DAL.EF.Repository.Base
+namespace Infrastructure.DAL.EF.Repository.Base
 {
     public abstract class RepositoryBase<TEntity> : IDisposable, IRepository<TEntity, Guid> 
         where TEntity : EntityBase<Guid>, new()

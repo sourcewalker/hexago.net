@@ -3,7 +3,7 @@ using System;
 using System.Data.Entity.Migrations;
 using System.Linq;
 
-namespace Core.DAL.EF.Migrations
+namespace Infrastructure.DAL.EF.Migrations
 {
     internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {

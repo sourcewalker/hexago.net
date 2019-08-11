@@ -233,14 +233,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.DAL.Interfaces\Core.DAL.Interfaces.csproj">
-      <Project>{08A305F5-9A0D-4983-8A0E-EC4EEC56F0D8}</Project>
-      <Name>Core.DAL.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\Core.DAL\Core.DAL.EF.csproj">
-      <Project>{7202C8DA-FF00-47D9-9F91-0969677DA7A8}</Project>
-      <Name>Core.DAL.EF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\Core.Infrastructure.Interfaces\Core.Infrastructure.Interfaces.csproj">
       <Project>{1B151599-2CED-4929-8C88-4D098EAA41E6}</Project>
       <Name>Core.Infrastructure.Interfaces</Name>
@@ -260,6 +252,10 @@
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.Community\Infrastructure.Community.csproj">
       <Project>{D6F1F7F9-47BF-4DAD-9B83-CFA9BF057300}</Project>
       <Name>Infrastructure.Community</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.DAL.EF\Infrastructure.DAL.EF.csproj">
+      <Project>{7202c8da-ff00-47d9-9f91-0969677da7a8}</Project>
+      <Name>Infrastructure.DAL.EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.Elmah\Infrastructure.Elmah.csproj">
       <Project>{6E47071A-733B-47B6-BDCD-E686214BE6FF}</Project>

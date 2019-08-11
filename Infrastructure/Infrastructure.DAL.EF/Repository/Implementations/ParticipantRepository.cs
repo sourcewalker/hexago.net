@@ -1,14 +1,14 @@
 ﻿using Core.Shared.DTO;
 using Core.Shared.Mapping.Helper;
-using Core.DAL.EF.Repository.Base;
-using Core.DAL.Interfaces;
 using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Infrastructure.DAL.EF.Repository.Base;
+using Core.Infrastructure.Interfaces.DAL;
 
-namespace Core.DAL.EF.Repository.Implementations
+namespace Infrastructure.DAL.EF.Repository.Implementations
 {
     public class ParticipantRepository : RepositoryBase<Participant>, IParticipantRepository
     {

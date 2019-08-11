@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Shared.DTO;
 using Core.Shared.Mapping.Helper;
-using Core.DAL.EF.Repository.Base;
-using Core.DAL.Interfaces;
+using Infrastructure.DAL.EF.Repository.Base;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Model;
 
-namespace Core.DAL.EF.Repository.Implementations
+namespace Infrastructure.DAL.EF.Repository.Implementations
 {
     public class FailedTransactionRepository : RepositoryBase<FailedTransaction>, IFailedTransactionRepository
     {

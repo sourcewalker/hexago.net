@@ -1,9 +1,9 @@
-﻿using Autofac;
+﻿using Hangfire;
+using Autofac;
 using Autofac.Integration.WebApi;
-using Core.DAL.EF.Repository.Implementations;
-using Core.DAL.Interfaces;
 using Core.Infrastructure.Interfaces.Account;
 using Core.Infrastructure.Interfaces.Crm;
+using Core.Infrastructure.Interfaces.DAL;
 using Core.Infrastructure.Interfaces.InstantWin;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Infrastructure.Interfaces.Scheduler;
@@ -11,16 +11,16 @@ using Core.Infrastructure.Interfaces.Validator;
 using Core.Service.Domain;
 using Core.Service.Flow;
 using Core.Service.Interfaces;
-using Hangfire;
 using Infrastructure.Captcha.Provider;
 using Infrastructure.Community;
 using Infrastructure.Elmah;
 using Infrastructure.Hangfire;
 using Infrastructure.InstantWin.Provider;
 using Infrastructure.ProCampaign.Consumer;
+using Infrastructure.DAL.EF.Repository.Implementations;
 using System.Reflection;
-using Web.Configuration.Implementations;
 using Web.Configuration.Interfaces;
+using Web.Configuration.Implementations;
 
 namespace Web.Service
 {
