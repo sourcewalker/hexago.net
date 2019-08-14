@@ -9,10 +9,10 @@ namespace Infrastructure.InstantWin.Provider
 {
     public class InstantWinProvider : IInstantWinMomentProvider
     {
-        public IList<DateTimeOffset> GenerateWinningMoments()
+        public IList<DateTimeOffset> GenerateWinningMoments(GeneratorConfig config)
         {
             var generator = GeneratorFactory.Create(ProviderConfiguration.Generator.algorithm);
-            return generator.Generate();
+            return generator.Generate(config);
         }
 
         public IList<(Guid Id, string Name)> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber)

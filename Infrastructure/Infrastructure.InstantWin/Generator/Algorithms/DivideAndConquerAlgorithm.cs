@@ -1,5 +1,4 @@
-﻿using Infrastructure.InstantWin.Configuration;
-using Infrastructure.InstantWin.Enums;
+﻿using Core.Infrastructure.Interfaces.InstantWin;
 using Infrastructure.InstantWin.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,17 +8,18 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
 {
     public class DivideAndConquerAlgorithm : IGenerator
     {
-        public IList<DateTimeOffset> Generate()
+        public IList<DateTimeOffset> Generate(GeneratorConfig config)
         {
-            var startDate = ProviderConfiguration.Campaign.StartDate;
-            var endDate = ProviderConfiguration.Campaign.EndDate;
-            var openHour = ProviderConfiguration.Campaign.OpenTime;
-            var closeHour = ProviderConfiguration.Campaign.CloseTime;
+            var startDate = config.StartDate;
+            var endDate = config.EndDate;
+            var openHour = config.OpenTime;
+            var closeHour = config.CloseTime;
+            var limitOptions = config.LimitOption;
 
             // Dividing Timespan between start and end date into multiple intervals
             // According to limit option
-            var intervalLength = GetDivisionInterval();
-            var limitPerInterval = ProviderConfiguration.Generator.LimitNumber;
+            var limitPerInterval = config.LimitNumber;
+            var intervalLength = GetDivisionInterval(limitOptions, startDate, endDate);
 
             var firstIntervalDate = startDate;
 
@@ -48,12 +48,28 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
                 {
                     random.NextBytes(bytes);
                     var ranDouble = randomAddition.NextDouble();
-                    var randomDate = GenerateRandomDateBetweenInterval(bytes, firstIntervalDate, lastIntervalDate);
-                    var differentElement = EnsureDifferentDate(ranDouble, randomDate, dateList, firstIntervalDate, lastIntervalDate);
+                    var randomDate = GenerateRandomDateBetweenInterval(
+                                        bytes,
+                                        firstIntervalDate,
+                                        lastIntervalDate,
+                                        openHour,
+                                        closeHour);
+                    var differentElement = EnsureDifferentDate(
+                                            ranDouble,
+                                            randomDate,
+                                            dateList,
+                                            firstIntervalDate,
+                                            lastIntervalDate);
                     dateList.Add(differentElement);
                 }
 
-                var nextInterval = SwitchToNextInterval(lastIntervalDate, intervalLength, endDate);
+                var nextInterval = SwitchToNextInterval(
+                                    limitOptions,
+                                    lastIntervalDate,
+                                    intervalLength,
+                                    endDate,
+                                    openHour,
+                                    closeHour);
                 firstIntervalDate = nextInterval.nextIntervalStart;
                 lastIntervalDate = nextInterval.nextIntervalEnd;
             }
@@ -62,10 +78,10 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             return dateList;
         }
 
-        private TimeSpan GetDivisionInterval()
+        private TimeSpan GetDivisionInterval(GeneratorLimitOptions limitOptions,
+            DateTimeOffset startDate,
+            DateTimeOffset endDate)
         {
-            var limitOptions = ProviderConfiguration.Generator.limitOption;
-
             switch (limitOptions)
             {
                 case GeneratorLimitOptions.LimitPerHour:
@@ -76,20 +92,21 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
                     return TimeSpan.FromDays(30);
                 case GeneratorLimitOptions.LimitPerCampaign:
                 default:
-                    return ProviderConfiguration.Campaign.EndDate - ProviderConfiguration.Campaign.StartDate;
+                    return endDate - startDate;
             }
         }
 
         private (DateTimeOffset nextIntervalStart, DateTimeOffset nextIntervalEnd) SwitchToNextInterval(
+            GeneratorLimitOptions limitOption,
             DateTimeOffset previousIntervalEnd,
             TimeSpan intervalLength,
-            DateTimeOffset EndLimit)
+            DateTimeOffset EndLimit,
+            DateTimeOffset openHour,
+            DateTimeOffset closeHour)
         {
-            var openHour = ProviderConfiguration.Campaign.OpenTime;
-            var closeHour = ProviderConfiguration.Campaign.CloseTime;
             var nextIntervalStart = previousIntervalEnd;
 
-            if (ProviderConfiguration.Generator.limitOption == GeneratorLimitOptions.LimitPerHour)
+            if (limitOption == GeneratorLimitOptions.LimitPerHour)
             {
                 if (nextIntervalStart.TimeOfDay < openHour.TimeOfDay)
                 {
@@ -114,10 +131,13 @@ namespace Infrastructure.InstantWin.Generator.Algorithms
             return (nextIntervalStart, nextIntervalEnd);
         }
 
-        private DateTimeOffset GenerateRandomDateBetweenInterval(byte[] bytes, DateTimeOffset firstDate, DateTimeOffset lastDate)
+        private DateTimeOffset GenerateRandomDateBetweenInterval(
+            byte[] bytes,
+            DateTimeOffset firstDate,
+            DateTimeOffset lastDate,
+            DateTimeOffset openHour,
+            DateTimeOffset closeHour)
         {
-            var openHour = ProviderConfiguration.Campaign.OpenTime;
-            var closeHour = ProviderConfiguration.Campaign.CloseTime;
             var timeSpan = lastDate - firstDate;
             var additionSpan = GetRandomTimeInTimeSpan(bytes, timeSpan);
             var newRandom = firstDate + additionSpan;

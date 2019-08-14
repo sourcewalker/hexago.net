@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.InstantWin.Enums
+﻿namespace Core.Infrastructure.Interfaces.InstantWin
 {
     public enum GeneratorLimitOptions
     {

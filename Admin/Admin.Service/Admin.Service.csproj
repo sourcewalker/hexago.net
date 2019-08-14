@@ -249,25 +249,13 @@
       <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Community\Infrastructure.Community.csproj">
-      <Project>{D6F1F7F9-47BF-4DAD-9B83-CFA9BF057300}</Project>
-      <Name>Infrastructure.Community</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.DAL.EF\Infrastructure.DAL.EF.csproj">
-      <Project>{7202c8da-ff00-47d9-9f91-0969677da7a8}</Project>
+      <Project>{7202C8DA-FF00-47D9-9F91-0969677DA7A8}</Project>
       <Name>Infrastructure.DAL.EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.Elmah\Infrastructure.Elmah.csproj">
       <Project>{6E47071A-733B-47B6-BDCD-E686214BE6FF}</Project>
       <Name>Infrastructure.Elmah</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Hangfire\Infrastructure.Hangfire.csproj">
-      <Project>{4D62FF06-58C3-4A0A-9737-FC71D7C4F051}</Project>
-      <Name>Infrastructure.Hangfire</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\Infrastructure.ProCampaign\Infrastructure.ProCampaign.csproj">
-      <Project>{C3D4F1DD-9ED7-40CD-8BA2-812E859EA523}</Project>
-      <Name>Infrastructure.ProCampaign</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
