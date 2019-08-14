@@ -14,12 +14,27 @@ namespace Infrastructure.DAL.EF.Migrations
 
         protected override void Seed(DatabaseContext context)
         {
+            var usId = default(Guid);
             var ukId = default(Guid);
             var ieId = default(Guid);
             var deId = default(Guid);
             var atId = default(Guid);
 
             #region Site seeding
+
+            if (!context.Sites.Any(p => p.Name == "US"))
+            {
+                usId = Guid.NewGuid();
+
+                context.Sites.AddOrUpdate(new Site()
+                {
+                    Id = usId,
+                    Culture = "en-US",
+                    Name = "US",
+                    Domain = ".com",
+                    CreatedDate = DateTime.UtcNow
+                });
+            }
 
             if (!context.Sites.Any(p => p.Name == "UK"))
             {
