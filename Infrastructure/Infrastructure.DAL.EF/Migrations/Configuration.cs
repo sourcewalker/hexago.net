@@ -32,7 +32,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "en-US",
                     Name = "US",
                     Domain = ".com",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -46,7 +46,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "en-GB",
                     Name = "UK",
                     Domain = ".co.uk",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -60,7 +60,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "en-IE",
                     Name = "IE",
                     Domain = ".ie",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -74,7 +74,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "de-DE",
                     Name = "DE",
                     Domain = ".de",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -88,7 +88,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "de-AT",
                     Name = "AT",
                     Domain = ".at",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 

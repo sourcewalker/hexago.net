@@ -44,7 +44,7 @@ namespace Infrastructure.ProCampaign.Models
                     new
                     {
                         Name = data.GetSetting<string>("TransactionName"),
-                        Date_Created = DateTime.UtcNow.ToString(),
+                        Date_Created = DateTimeOffset.UtcNow.ToString(),
                         Parameters = new []
                         {
                             new
@@ -122,7 +122,7 @@ namespace Infrastructure.ProCampaign.Models
                     new
                     {
                         Name = data.GetSetting<string>("TransactionName"),
-                        Date_Created = DateTime.UtcNow.ToString()
+                        Date_Created = DateTimeOffset.UtcNow.ToString()
                     }
                 },
                 LegalTextVersions = new[]

@@ -25,12 +25,12 @@ namespace Web.Site.ViewModels
 
         public bool IsActivePhase()
         {
-            return DateTime.UtcNow < EndDate;
+            return DateTimeOffset.UtcNow < EndDate;
         }
 
         public bool IsHoldingPhase()
         {
-            return EndDate < DateTime.UtcNow;
+            return EndDate < DateTimeOffset.UtcNow;
         }
     }
 }

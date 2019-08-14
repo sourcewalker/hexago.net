@@ -54,14 +54,14 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         public bool Add(ParticipationDto participation)
         {
             participation.Id = participation.Id != default ? participation.Id : Guid.NewGuid();
-            participation.CreatedDate = DateTime.UtcNow;
+            participation.CreatedDate = DateTimeOffset.UtcNow;
             return Add(participation?.toEntity(), true) > 0;
         }
 
         public async Task<bool> AddAsync(ParticipationDto participation)
         {
             participation.Id = participation.Id != default ? participation.Id : Guid.NewGuid();
-            participation.CreatedDate = DateTime.UtcNow;
+            participation.CreatedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Add(participation?.toEntity(), true) > 0);
         }
 
@@ -71,13 +71,13 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
             participationEntity.Status = participation.Status;
             participationEntity.ApiStatus = participation.ApiStatus;
             participationEntity.ApiMessage = participation.ApiMessage;
-            participationEntity.ModifiedDate = DateTime.UtcNow;
+            participationEntity.ModifiedDate = DateTimeOffset.UtcNow;
             return Update(participationEntity, true) > 0;
         }
 
         public async Task<bool> UpdateAsync(ParticipationDto participation)
         {
-            participation.ModifiedDate = DateTime.UtcNow;
+            participation.ModifiedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Update(participation?.toEntity(), true) > 0);
         }
 
@@ -154,7 +154,7 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
             return participation?.toDto();
         }
 
-        public IEnumerable<ParticipationDto> GetBetween(DateTime start, DateTime end)
+        public IEnumerable<ParticipationDto> GetBetween(DateTimeOffset start, DateTimeOffset end)
         {
             return Context.ParticipationsQueryable
                         .Where(v => start < v.CreatedDate && v.CreatedDate < end)

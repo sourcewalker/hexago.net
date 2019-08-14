@@ -21,8 +21,8 @@ namespace Core.Shared.Tests.Mapping.Helper
                 Status = "Tested",
                 ApiStatus = "Success",
                 ApiMessage = "Transaction success",
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow
+                CreatedDate = DateTimeOffset.UtcNow,
+                ModifiedDate = DateTimeOffset.UtcNow
             };
 
             // Act
@@ -95,8 +95,8 @@ namespace Core.Shared.Tests.Mapping.Helper
                     Status = "Tested" + i,
                     ApiStatus = "Success" + i,
                     ApiMessage = "Transaction success" + i,
-                    CreatedDate = DateTime.UtcNow,
-                    ModifiedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow,
+                    ModifiedDate = DateTimeOffset.UtcNow
                 };
                 entities.Add(entity);
             }

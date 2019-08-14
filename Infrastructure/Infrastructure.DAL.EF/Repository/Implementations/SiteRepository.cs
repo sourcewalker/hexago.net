@@ -33,26 +33,26 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         public bool Add(SiteDto site)
         {
             site.Id = site.Id != default ? site.Id : Guid.NewGuid();
-            site.CreatedDate = DateTime.UtcNow;
+            site.CreatedDate = DateTimeOffset.UtcNow;
             return Add(site?.toEntity(), true) > 0;
         }
 
         public async Task<bool> AddAsync(SiteDto site)
         {
             site.Id = site.Id != default ? site.Id : Guid.NewGuid();
-            site.CreatedDate = DateTime.UtcNow;
+            site.CreatedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Add(site?.toEntity(), true) > 0);
         }
 
         public bool Update(SiteDto site)
         {
-            site.ModifiedDate = DateTime.UtcNow;
+            site.ModifiedDate = DateTimeOffset.UtcNow;
             return Update(site?.toEntity(), true) > 0;
         }
 
         public async Task<bool> UpdateAsync(SiteDto site)
         {
-            site.ModifiedDate = DateTime.UtcNow;
+            site.ModifiedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Update(site?.toEntity(), true) > 0);
         }
 

@@ -28,7 +28,7 @@ namespace Core.Service.Domain
             return _participationRepository.GetAll();
         }
 
-        public IEnumerable<ParticipationDto> GetBetween(DateTime start, DateTime end)
+        public IEnumerable<ParticipationDto> GetBetween(DateTimeOffset start, DateTimeOffset end)
         {
             return _participationRepository.GetBetween(start, end);
         }

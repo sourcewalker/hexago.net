@@ -26,8 +26,8 @@ namespace Core.Shared.DTO
 
         public bool RetailerConsent { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
 
-        public DateTime? ModifiedDate { get; set; }
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace Core.Service.Flow
         {
             // Save Participation to DB
             participation.Status = ParticipationStatus.PARTICIPATION_NOT_SYNCED.ToString();
-            participation.CreatedDate = DateTime.UtcNow;
+            participation.CreatedDate = DateTimeOffset.UtcNow;
             _participationService.CreateParticipation(participation);
 
 
@@ -131,7 +131,7 @@ namespace Core.Service.Flow
                 ParticipationId = participation.Id,
                 TermsConsent = true,
                 NewsletterOptin = participation.NewsletterOptin,
-                CreatedDate = DateTime.UtcNow
+                CreatedDate = DateTimeOffset.UtcNow
             };
 
             _failedTransactionService.Create(failed);
@@ -150,7 +150,7 @@ namespace Core.Service.Flow
                 currentParticipation.ApiStatus = typedResponse.Data.ApiStatus.ToString();
                 currentParticipation.ConsumerId = typedResponse.Data.Data.ConsumerId;
                 currentParticipation.ApiMessage = typedResponse.Data.ApiMessage;
-                currentParticipation.ModifiedDate = DateTime.UtcNow;
+                currentParticipation.ModifiedDate = DateTimeOffset.UtcNow;
                 _participationService.UpdateParticipation(currentParticipation);
 
                 _failedTransactionService.Delete(failed.Id);
@@ -162,7 +162,7 @@ namespace Core.Service.Flow
                 var currentParticipation = _participationService.GetParticipation(participation.Id);
 
                 currentParticipation.Status = ParticipationStatus.PARTICIPATION_RETRY_FAILED.ToString();
-                currentParticipation.ModifiedDate = DateTime.UtcNow;
+                currentParticipation.ModifiedDate = DateTimeOffset.UtcNow;
                 _participationService.UpdateParticipation(currentParticipation);
             }
 
