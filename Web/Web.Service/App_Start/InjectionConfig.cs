@@ -45,7 +45,7 @@ namespace Web.Service
                    .InstancePerLifetimeScope();
 
             // Infrastructures
-            builder.RegisterType<CommunityProvider>()
+            builder.RegisterType<KuhmunityProvider>()
                    .As<IAccountProvider>()
                    .InstancePerLifetimeScope();
             builder.RegisterType<ElmahProvider>()

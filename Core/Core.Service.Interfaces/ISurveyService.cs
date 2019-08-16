@@ -6,7 +6,7 @@ namespace Core.Service.Interfaces
 {
     public interface ISurveyService
     {
-        IEnumerable<ParticipationDto> ExtractParticipation(DateTime start, DateTime end);
+        IEnumerable<ParticipationDto> ExtractParticipation(DateTimeOffset start, DateTimeOffset end);
 
         int GetParticipationNumberBySite(Guid siteId);
     }

@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hangfire.Core, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Hangfire.Core.1.7.3\lib\net46\Hangfire.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.5.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -56,6 +53,7 @@
     <Compile Include="Domain\ParticipantService.cs" />
     <Compile Include="Domain\FailedTransactionService.cs" />
     <Compile Include="Domain\ParticipationService.cs" />
+    <Compile Include="Flow\InstantWinService.cs" />
     <Compile Include="Flow\LegalService.cs" />
     <Compile Include="Flow\JourneyService.cs" />
     <Compile Include="Flow\SurveyService.cs" />

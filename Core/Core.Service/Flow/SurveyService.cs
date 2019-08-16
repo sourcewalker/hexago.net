@@ -14,7 +14,7 @@ namespace Core.Service.Flow
             _participationService = participationService;
         }
 
-        public IEnumerable<ParticipationDto> ExtractParticipation(DateTime start, DateTime end)
+        public IEnumerable<ParticipationDto> ExtractParticipation(DateTimeOffset start, DateTimeOffset end)
         {
             return _participationService.GetBetween(start, end);
         }

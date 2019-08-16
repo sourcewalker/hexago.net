@@ -20,8 +20,8 @@ namespace Core.Shared.Tests.Mapping.Helper
             {
                 TermsConsent = true,
                 NewsletterOptin = true,
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow
+                CreatedDate = DateTimeOffset.UtcNow,
+                ModifiedDate = DateTimeOffset.UtcNow
             };
 
             // Act
@@ -88,8 +88,8 @@ namespace Core.Shared.Tests.Mapping.Helper
                 {
                     TermsConsent = true,
                     NewsletterOptin = true,
-                    CreatedDate = DateTime.UtcNow,
-                    ModifiedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow,
+                    ModifiedDate = DateTimeOffset.UtcNow
                 };
                 entities.Add(entity);
             }

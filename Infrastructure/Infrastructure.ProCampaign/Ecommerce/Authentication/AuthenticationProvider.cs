@@ -1,13 +1,12 @@
-﻿using Infrastructure.ProCampaign.Ecommerce.Entities;
-using System;
-using System.Text;
-using System.Net;
-using System.IO;
+﻿using Core.Infrastructure.Interfaces.Caching;
 using Core.Infrastructure.Interfaces.Crm;
-using Core.Shared.Utility;
-using Core.Infrastructure.Interfaces.Caching;
-using System.Configuration;
 using Core.Infrastructure.Interfaces.Logging;
+using Infrastructure.ProCampaign.Ecommerce.Entities;
+using System;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Text;
 
 namespace Infrastructure.ProCampaign.Ecommerce.Authentication
 {
@@ -43,7 +42,8 @@ namespace Infrastructure.ProCampaign.Ecommerce.Authentication
         /// <param name="siteId">Site Id Guid associated to the token</param>
         /// <seealso cref="GetClientId(Guid)"/>
         /// <seealso cref="RefreshToken(string)"/>
-        public string GetToken(Guid siteId) {
+        public string GetToken(Guid siteId)
+        {
 
             var clientId = GetClientId(siteId);
 
@@ -57,7 +57,8 @@ namespace Infrastructure.ProCampaign.Ecommerce.Authentication
                 _cacheProvider.Add(cacheKey, bearer, bearer.ExpiryStamp);
                 return bearer?.AccessToken;
             }
-            else {
+            else
+            {
                 var bearer = _cacheProvider.Get<BearerToken>(cacheKey);
 
                 // Check token validity if from cache, otherwise get from remote
@@ -65,7 +66,8 @@ namespace Infrastructure.ProCampaign.Ecommerce.Authentication
                 {
                     return bearer.AccessToken;
                 }
-                else {
+                else
+                {
                     var newBearer = RefreshToken(clientId);
                     _cacheProvider.Add(cacheKey, newBearer, newBearer.ExpiryStamp);
                     return bearer?.AccessToken;
@@ -88,7 +90,7 @@ namespace Infrastructure.ProCampaign.Ecommerce.Authentication
 
             try
             {
-               return ConfigurationManager.AppSettings["ConsultixAuth:ClientIdKey"];
+                return ConfigurationManager.AppSettings["ConsultixAuth:ClientIdKey"];
             }
             catch (Exception ex)
             {
@@ -132,7 +134,8 @@ namespace Infrastructure.ProCampaign.Ecommerce.Authentication
                 stream.Write(data, 0, data.Length);
             }
 
-            try {
+            try
+            {
                 var response = (HttpWebResponse)postWebRequest.GetResponse();
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -145,9 +148,10 @@ namespace Infrastructure.ProCampaign.Ecommerce.Authentication
                     return null;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 _logger.LogError("Authentication fail", new Exception("Error calling the Authentication service.", new Exception(
-                    "[Source]: "+ ex.Source + 
+                    "[Source]: " + ex.Source +
                     ", [Message]: " + ex.Message +
                     ", [Stack Trace]: " + ex.StackTrace
                     )));

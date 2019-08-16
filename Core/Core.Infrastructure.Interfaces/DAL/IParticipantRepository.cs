@@ -9,7 +9,7 @@ namespace Core.Infrastructure.Interfaces.DAL
     {
         IEnumerable<ParticipantDto> GetAll();
 
-        IEnumerable<ParticipantDto> GetBetween(DateTime start, DateTime end);
+        IEnumerable<ParticipantDto> GetBetween(DateTimeOffset start, DateTimeOffset end);
 
         int GetCount();
 

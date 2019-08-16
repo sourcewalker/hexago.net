@@ -22,8 +22,8 @@ namespace Core.Shared.Tests.Mapping.Helper
                 Culture = "en-GB",
                 Name = "uk",
                 Domain = "cadbury.co.uk",
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow
+                CreatedDate = DateTimeOffset.UtcNow,
+                ModifiedDate = DateTimeOffset.UtcNow
             };
 
             // Act
@@ -96,8 +96,8 @@ namespace Core.Shared.Tests.Mapping.Helper
                     Culture = "en-GB",
                     Name = "uk",
                     Domain = "cadbury.co.uk",
-                    CreatedDate = DateTime.UtcNow,
-                    ModifiedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow,
+                    ModifiedDate = DateTimeOffset.UtcNow
                 };
                 entities.Add(entity);
             }

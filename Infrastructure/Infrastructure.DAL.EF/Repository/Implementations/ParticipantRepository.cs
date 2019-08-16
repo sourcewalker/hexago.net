@@ -56,14 +56,14 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         public bool Add(ParticipantDto vote)
         {
             vote.Id = vote.Id != default ? vote.Id : Guid.NewGuid();
-            vote.CreatedDate = DateTime.UtcNow;
+            vote.CreatedDate = DateTimeOffset.UtcNow;
             return Add(vote?.toEntity(), true) > 0;
         }
 
         public async Task<bool> AddAsync(ParticipantDto vote)
         {
             vote.Id = vote.Id != default ? vote.Id : Guid.NewGuid();
-            vote.CreatedDate = DateTime.UtcNow;
+            vote.CreatedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Add(vote?.toEntity(), true) > 0);
         }
 
@@ -72,13 +72,13 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
             var voteEntity = Find(vote.Id);
             voteEntity.EmailHash = vote.EmailHash;
             voteEntity.ConsumerId = vote.ConsumerId;
-            voteEntity.ModifiedDate = DateTime.UtcNow;
+            voteEntity.ModifiedDate = DateTimeOffset.UtcNow;
             return Update(voteEntity, true) > 0;
         }
 
         public async Task<bool> UpdateAsync(ParticipantDto vote)
         {
-            vote.ModifiedDate = DateTime.UtcNow;
+            vote.ModifiedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Update(vote?.toEntity(), true) > 0);
         }
 
@@ -197,7 +197,7 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
             return vote?.toDto();
         }
 
-        public IEnumerable<ParticipantDto> GetBetween(DateTime start, DateTime end)
+        public IEnumerable<ParticipantDto> GetBetween(DateTimeOffset start, DateTimeOffset end)
         {
             return Context.ParticipantsQueryable
                         .Where(v => start < v.CreatedDate && v.CreatedDate < end)

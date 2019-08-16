@@ -36,7 +36,7 @@ namespace Core.Service.Tests.Domain
                 Name = "UK",
                 Culture = "en-GB",
                 Domain = "com",
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = DateTimeOffset.UtcNow,
                 ModifiedDate = null
             };
         }

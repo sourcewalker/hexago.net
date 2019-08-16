@@ -33,26 +33,26 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         public bool Add(FailedTransactionDto failedTransaction)
         {
             failedTransaction.Id = failedTransaction.Id != default ? failedTransaction.Id : Guid.NewGuid();
-            failedTransaction.CreatedDate = DateTime.UtcNow;
+            failedTransaction.CreatedDate = DateTimeOffset.UtcNow;
             return Add(failedTransaction?.toEntity(), true) > 0;
         }
 
         public async Task<bool> AddAsync(FailedTransactionDto failedTransaction)
         {
             failedTransaction.Id = failedTransaction.Id != default ? failedTransaction.Id : Guid.NewGuid();
-            failedTransaction.CreatedDate = DateTime.UtcNow;
+            failedTransaction.CreatedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Add(failedTransaction?.toEntity(), true) > 0);
         }
 
         public bool Update(FailedTransactionDto failedTransaction)
         {
-            failedTransaction.ModifiedDate = DateTime.UtcNow;
+            failedTransaction.ModifiedDate = DateTimeOffset.UtcNow;
             return Update(failedTransaction?.toEntity(), true) > 0;
         }
 
         public async Task<bool> UpdateAsync(FailedTransactionDto failedTransaction)
         {
-            failedTransaction.ModifiedDate = DateTime.UtcNow;
+            failedTransaction.ModifiedDate = DateTimeOffset.UtcNow;
             return await Task.Run(() => Update(failedTransaction?.toEntity(), true) > 0);
         }
 

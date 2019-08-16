@@ -61,7 +61,7 @@ namespace Admin.Service.Controllers
                 apiResponse.Message = "Site list returned successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTime.UtcNow.ToString()}");
+                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -112,7 +112,7 @@ namespace Admin.Service.Controllers
                 apiResponse.Message = "Site list returned successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTime.UtcNow.ToString()}");
+                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -162,7 +162,7 @@ namespace Admin.Service.Controllers
                 apiResponse.Message = "Site list returned successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTime.UtcNow.ToString()}");
+                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -213,7 +213,7 @@ namespace Admin.Service.Controllers
                 apiResponse.Message = "Site list returned successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTime.UtcNow.ToString()}");
+                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -263,7 +263,7 @@ namespace Admin.Service.Controllers
                 apiResponse.Message = "Site list returned successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTime.UtcNow.ToString()}");
+                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }

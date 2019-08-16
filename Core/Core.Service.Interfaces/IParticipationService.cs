@@ -8,7 +8,7 @@ namespace Core.Service.Interfaces
     {
         IEnumerable<ParticipationDto> GetAll();
 
-        IEnumerable<ParticipationDto> GetBetween(DateTime start, DateTime end);
+        IEnumerable<ParticipationDto> GetBetween(DateTimeOffset start, DateTimeOffset end);
 
         IEnumerable<ParticipationDto> GetParticipationsPagedBySite(Guid siteId, int pageNumber, int pageSize);
 

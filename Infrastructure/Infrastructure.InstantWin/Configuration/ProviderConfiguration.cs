@@ -1,4 +1,5 @@
-﻿using Infrastructure.InstantWin.Enums;
+﻿using Core.Infrastructure.Interfaces.InstantWin;
+using Infrastructure.InstantWin.Enums;
 using System;
 
 namespace Infrastructure.InstantWin.Configuration

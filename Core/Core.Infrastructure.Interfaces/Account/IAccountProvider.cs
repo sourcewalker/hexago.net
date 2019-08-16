@@ -1,5 +1,4 @@
-﻿using Core.Infrastructure.Interfaces.UserData;
-using Core.Shared.Configuration;
+﻿using Core.Shared.Configuration;
 
 namespace Core.Infrastructure.Interfaces.Account
 {
@@ -7,10 +6,12 @@ namespace Core.Infrastructure.Interfaces.Account
     {
         Configuration Configuration { get; set; }
 
-        LoginResult Login(Login login);
+        LoginResult Login(LoginInfo login);
 
-        LoginResult Register(Login login, User user);
+        LoginResult Logout();
 
-        LoginResult ChangePassword(Login login);
+        string GetLoginCookie();
+
+        LoginResult Register(RegisterInfo user);
     }
 }

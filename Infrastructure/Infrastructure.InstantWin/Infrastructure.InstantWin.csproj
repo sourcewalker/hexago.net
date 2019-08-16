@@ -48,7 +48,6 @@
     <Compile Include="Configuration\ProviderConfiguration.cs" />
     <Compile Include="Enums\AllocatorAlgorithms.cs" />
     <Compile Include="Enums\GeneratorAlgorithms.cs" />
-    <Compile Include="Enums\GeneratorLimitOptions.cs" />
     <Compile Include="Generator\Algorithms\DivideAndConquerAlgorithm.cs" />
     <Compile Include="Generator\Factory\GeneratorFactory.cs" />
     <Compile Include="Interfaces\IAllocator.cs" />

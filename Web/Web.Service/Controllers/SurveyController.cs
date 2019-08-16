@@ -76,17 +76,17 @@ namespace Web.Service.Controllers
 
             try
             {
-                var startDate = DateTime.MinValue;
+                var startDate = DateTimeOffset.MinValue;
 
                 if (!string.IsNullOrEmpty(from))
                 {
-                    if (DateTime.TryParse(from, out var startOut))
+                    if (DateTimeOffset.TryParse(from, out var startOut))
                     {
                         startDate = startOut;
                     }
                     else
                     {
-                        _logger.LogWarn("Extract Error", $"On {DateTime.UtcNow.ToString()}");
+                        _logger.LogWarn("Extract Error", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                         expando.Error = new List<string>() { "Start date invalid: Please enter a valid date" };
                         apiResponse.Message = "Validation error occured";
@@ -96,17 +96,17 @@ namespace Web.Service.Controllers
                     }
                 }
 
-                var endDate = DateTime.MaxValue;
+                var endDate = DateTimeOffset.MaxValue;
 
                 if (!string.IsNullOrEmpty(to))
                 {
-                    if (DateTime.TryParse(to, out var endOut))
+                    if (DateTimeOffset.TryParse(to, out var endOut))
                     {
                         endDate = endOut;
                     }
                     else
                     {
-                        _logger.LogWarn("Extract Error", $"On {DateTime.UtcNow.ToString()}");
+                        _logger.LogWarn("Extract Error", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                         expando.Error = "End date invalid: Please enter a valid date";
                         apiResponse.Message = "Validation error occured";
@@ -117,7 +117,7 @@ namespace Web.Service.Controllers
                 }
 
                 if (endDate.TimeOfDay.TotalSeconds == 0)
-                    endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 23, 59, 59);
+                    endDate = new DateTimeOffset(endDate.Year, endDate.Month, endDate.Day, 23, 59, 59, TimeSpan.Zero);
 
                 expando.Export = _surveyService.ExtractParticipation(startDate, endDate);
 
@@ -186,7 +186,7 @@ namespace Web.Service.Controllers
                     }
                     else
                     {
-                        _logger.LogWarn("Extract Error", $"On {DateTime.UtcNow.ToString()}");
+                        _logger.LogWarn("Extract Error", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                         throw new HttpResponseException(
                           new HttpResponseMessage(HttpStatusCode.NotAcceptable));
@@ -203,7 +203,7 @@ namespace Web.Service.Controllers
                     }
                     else
                     {
-                        _logger.LogWarn("Extract Error", $"On {DateTime.UtcNow.ToString()}");
+                        _logger.LogWarn("Extract Error", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                         throw new HttpResponseException(
                           new HttpResponseMessage(HttpStatusCode.NotAcceptable));

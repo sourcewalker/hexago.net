@@ -14,12 +14,27 @@ namespace Infrastructure.DAL.EF.Migrations
 
         protected override void Seed(DatabaseContext context)
         {
+            var usId = default(Guid);
             var ukId = default(Guid);
             var ieId = default(Guid);
             var deId = default(Guid);
             var atId = default(Guid);
 
             #region Site seeding
+
+            if (!context.Sites.Any(p => p.Name == "US"))
+            {
+                usId = Guid.NewGuid();
+
+                context.Sites.AddOrUpdate(new Site()
+                {
+                    Id = usId,
+                    Culture = "en-US",
+                    Name = "US",
+                    Domain = ".com",
+                    CreatedDate = DateTimeOffset.UtcNow
+                });
+            }
 
             if (!context.Sites.Any(p => p.Name == "UK"))
             {
@@ -31,7 +46,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "en-GB",
                     Name = "UK",
                     Domain = ".co.uk",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -45,7 +60,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "en-IE",
                     Name = "IE",
                     Domain = ".ie",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -59,7 +74,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "de-DE",
                     Name = "DE",
                     Domain = ".de",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
@@ -73,7 +88,7 @@ namespace Infrastructure.DAL.EF.Migrations
                     Culture = "de-AT",
                     Name = "AT",
                     Domain = ".at",
-                    CreatedDate = DateTime.UtcNow
+                    CreatedDate = DateTimeOffset.UtcNow
                 });
             }
 
