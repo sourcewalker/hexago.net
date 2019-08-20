@@ -30,13 +30,13 @@ namespace Core.Shared.Utility
             return str;
         }
 
-        private static char ToHex(int i)
+        private static char ToHex(int integer)
         {
             char c;
-            if (i < 10)
-                c = (char)(48 + i);
+            if (integer < 10)
+                c = (char)(48 + integer);
             else
-                c = (char)(87 + i);
+                c = (char)(87 + integer);
 
             return c;
         }
