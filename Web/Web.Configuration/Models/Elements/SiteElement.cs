@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using Web.Configuration.Collections;
+using Web.Configuration.Models.Collections;
 
-namespace Web.Configuration.Elements
+namespace Web.Configuration.Models.Elements
 {
     public class SiteElement : ConfigurationElement
     {

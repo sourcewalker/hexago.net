@@ -1,5 +1,5 @@
-﻿using Core.Shared.Configuration;
-using Core.Infrastructure.Interfaces.Crm;
+﻿using Core.Infrastructure.Interfaces.Crm;
+using Core.Shared.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -9,18 +9,18 @@ namespace Core.Infrastructure.Interfaces.Scheduler
     {
         Task RetryParticipationSyncRecurrently(
             CrmData data,
-            Configuration requestWideSettings,
+            Configurations requestWideSettings,
             CronEnum occurence,
             bool requestConsumerId = false);
 
         Task<object> RetryParticipationSyncImmediately(
             CrmData data,
-            Configuration requestWideSettings,
+            Configurations requestWideSettings,
             bool requestConsumerId = false);
 
         Task DelayedParticipationRetrySync(
             CrmData data,
-            Configuration requestWideSettings,
+            Configurations requestWideSettings,
             TimeSpan delay,
             bool requestConsumerId = false);
     }

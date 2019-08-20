@@ -1,6 +1,6 @@
-﻿using System.Threading;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using System.Threading;
 using System.Web.Mvc;
-using Web.Configuration.Interfaces;
 using Web.Site.ViewModels;
 
 namespace Web.Site.Controllers

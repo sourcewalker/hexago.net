@@ -46,13 +46,16 @@
     <Compile Include="Account\LoginInfo.cs" />
     <Compile Include="Account\RegisterInfo.cs" />
     <Compile Include="Caching\ICacheProvider.cs" />
+    <Compile Include="Configuration\IConfigurationProvider.cs" />
     <Compile Include="CRM\CrmData.cs" />
+    <Compile Include="CRM\CrmResponse.cs" />
     <Compile Include="CRM\ICrmAuthenticationProvider.cs" />
     <Compile Include="CRM\ICrmCommerceProvider.cs" />
     <Compile Include="CRM\ICrmConsumerProvider.cs" />
     <Compile Include="DAL\IFailedTransactionRepository.cs" />
     <Compile Include="DAL\IParticipantRepository.cs" />
     <Compile Include="DAL\IParticipationRepository.cs" />
+    <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\ISiteRepository.cs" />
     <Compile Include="InstantWin\Allocable.cs" />
     <Compile Include="InstantWin\GeneratorConfig.cs" />
@@ -67,10 +70,15 @@
     <Compile Include="Validator\IFormValidatorProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Model\Core.Model.csproj">
+      <Project>{FE3A179D-AC9B-4525-A133-2BD00369F383}</Project>
+      <Name>Core.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Shared\Core.Shared.csproj">
       <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

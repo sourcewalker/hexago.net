@@ -1,9 +1,9 @@
-﻿using Core.Infrastructure.Interfaces.Crm;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using Core.Infrastructure.Interfaces.Crm;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Service.Interfaces;
-using Core.Shared.Configuration;
+using Core.Shared.Models;
 using System.Threading.Tasks;
-using Web.Configuration.Interfaces;
 
 namespace Core.Service.Flow
 {

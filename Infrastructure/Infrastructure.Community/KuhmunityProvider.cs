@@ -1,14 +1,14 @@
-﻿using Core.Shared.Configuration;
+﻿using Core.Infrastructure.Interfaces.Account;
 using Core.Infrastructure.Interfaces.UserData;
-using System;
-using Core.Infrastructure.Interfaces.Account;
+using Core.Shared.Models;
 using Infrastructure.Community.Login;
+using System;
 
 namespace Infrastructure.Community
 {
     public class KuhmunityProvider : IAccountProvider, IUserDataProvider
     {
-        public Configuration Configuration
+        public Configurations Configuration
         {
             get => throw new NotImplementedException();
             set => throw new NotImplementedException();

@@ -1,4 +1,5 @@
-﻿namespace Web.Configuration.Configuration
+﻿
+namespace Core.Shared.Models
 {
     public enum Environments
     {

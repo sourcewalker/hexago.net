@@ -1,9 +1,9 @@
 ﻿using System.Configuration;
-using Web.Configuration.Collections;
+using Web.Configuration.Models.Collections;
 
 namespace Web.Configuration.Sections
 {
-    public sealed partial class EnvironmentContextSection :  ConfigurationSection
+    public sealed partial class EnvironmentContextSection : ConfigurationSection
     {
         [ConfigurationProperty("Environments", IsDefaultCollection = true)]
         public EnvironmentCollection Environments

@@ -1,14 +1,15 @@
-﻿using Core.Infrastructure.Interfaces.Crm;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using Core.Infrastructure.Interfaces.Crm;
+using Core.Infrastructure.Interfaces.CRM;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Infrastructure.Interfaces.Scheduler;
 using Core.Service.Interfaces;
 using Core.Service.Status;
-using Core.Shared.Configuration;
 using Core.Shared.DTO;
+using Core.Shared.Models;
 using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using Web.Configuration.Interfaces;
 
 namespace Core.Service.Flow
 {
@@ -107,9 +108,9 @@ namespace Core.Service.Flow
             return crmData;
         }
 
-        private Configuration Configure(string culture)
+        private Configurations Configure(string culture)
         {
-            var configuration = new Configuration();
+            var configuration = new Configurations();
             configuration.Settings.Source = _configProvider.GetSharedConfig(sourceConfigKey);
             configuration.Settings.Transaction = _configProvider.GetSharedConfig(transactionConfigKey);
             configuration.Settings.ApiKey = _configProvider.GetConfigByCultureAndEnvironment(apiKeyConfigKey,
@@ -119,7 +120,7 @@ namespace Core.Service.Flow
             return configuration;
         }
 
-        private async Task<(bool, string)> ProceedToParticipationSyncRetryProcess(ParticipationDto participation, CrmData crmData, Configuration configuration)
+        private async Task<(bool, string)> ProceedToParticipationSyncRetryProcess(ParticipationDto participation, CrmData crmData, Configurations configuration)
         {
             var success = false;
             var consumerId = string.Empty;

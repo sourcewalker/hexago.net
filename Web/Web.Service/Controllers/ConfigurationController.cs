@@ -1,4 +1,5 @@
-﻿using Core.Infrastructure.Interfaces.Logging;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using Core.Infrastructure.Interfaces.Logging;
 using Core.Service.Interfaces;
 using Swashbuckle.Swagger.Annotations;
 using System;
@@ -7,7 +8,6 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
-using Web.Configuration.Interfaces;
 using Web.Service.Filters;
 using Web.Service.Models;
 

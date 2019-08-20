@@ -1,7 +1,7 @@
-﻿using System.Threading;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Web.Configuration.Interfaces;
 using Web.Site.Services.Interfaces;
 
 namespace Web.Site.Controllers

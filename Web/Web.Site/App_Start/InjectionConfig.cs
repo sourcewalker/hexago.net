@@ -1,10 +1,10 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using Core.Infrastructure.Interfaces.Configuration;
 using System.Web.Mvc;
-using Web.Configuration.Implementations;
-using Web.Configuration.Interfaces;
-using Web.Site.Services.Interfaces;
+using Web.Configuration.XML;
 using Web.Site.Services.Helpers;
+using Web.Site.Services.Interfaces;
 
 namespace Web.Site
 {

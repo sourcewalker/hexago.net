@@ -1,5 +1,5 @@
-﻿using Core.Shared.Configuration;
-using Core.Infrastructure.Interfaces.Crm;
+﻿using Core.Infrastructure.Interfaces.Crm;
+using Core.Shared.Models;
 using Infrastructure.ProCampaign.Constants;
 using Infrastructure.ProCampaign.Helper;
 using Infrastructure.ProCampaign.Models;
@@ -10,11 +10,11 @@ namespace Infrastructure.ProCampaign.Consumer
 {
     public class ConsumerProvider : ICrmConsumerProvider
     {
-        public Configuration Configuration { get; set; }
+        public Configurations Configuration { get; set; }
 
         public ConsumerProvider()
         {
-            Configuration = new Configuration();
+            Configuration = new Configurations();
 
             // Consumer endpoint configuration
             Configuration.Settings.ConsumerBaseUrl = ProCampaignConstants.ConsumerAPI.BaseUrl;
@@ -29,8 +29,8 @@ namespace Infrastructure.ProCampaign.Consumer
         }
 
         public async Task<CrmData> CreateParticipationAsync(
-            CrmData data, 
-            Configuration requestWideSettings, 
+            CrmData data,
+            Configurations requestWideSettings,
             bool requestConsumerId = false)
         {
             data.AddSetting("SourceName", requestWideSettings.Settings.Source);

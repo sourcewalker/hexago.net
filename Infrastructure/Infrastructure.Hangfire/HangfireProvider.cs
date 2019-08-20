@@ -1,6 +1,7 @@
 ﻿using Core.Infrastructure.Interfaces.Crm;
+using Core.Infrastructure.Interfaces.CRM;
 using Core.Infrastructure.Interfaces.Scheduler;
-using Core.Shared.Configuration;
+using Core.Shared.Models;
 using Hangfire;
 using Hangfire.Storage;
 using Hangfire.Storage.Monitoring;
@@ -16,7 +17,7 @@ namespace Infrastructure.Hangfire
 
         public async Task DelayedParticipationRetrySync(
             CrmData data,
-            Configuration requestWideSettings,
+            Configurations requestWideSettings,
             TimeSpan delay,
             bool requestConsumerId = false)
         {
@@ -32,7 +33,7 @@ namespace Infrastructure.Hangfire
 
         public async Task<object> RetryParticipationSyncImmediately(
             CrmData data,
-            Configuration requestWideSettings,
+            Configurations requestWideSettings,
             bool requestConsumerId = false)
         {
             var jobId = await Task.Run(() => BackgroundJob.Enqueue<ICrmConsumerProvider>(
@@ -60,7 +61,7 @@ namespace Infrastructure.Hangfire
 
         public async Task RetryParticipationSyncRecurrently(
             CrmData data,
-            Configuration requestWideSettings,
+            Configurations requestWideSettings,
             CronEnum occurence,
             bool requestConsumerId = false)
         {

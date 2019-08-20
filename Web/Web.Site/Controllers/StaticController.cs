@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using Web.Configuration.Interfaces;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using System.Web.Mvc;
 using Web.Site.Services.Interfaces;
 
 namespace Web.Site.Controllers

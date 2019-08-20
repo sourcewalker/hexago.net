@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using Web.Configuration.Elements;
+using Web.Configuration.Models.Elements;
 
-namespace Web.Configuration.Collections
+namespace Web.Configuration.Models.Collections
 {
     public class AddCollection : ConfigurationElementCollection
     {
