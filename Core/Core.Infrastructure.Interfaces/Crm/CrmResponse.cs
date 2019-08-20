@@ -1,5 +1,5 @@
 ﻿
-namespace Core.Shared.Configuration
+namespace Core.Infrastructure.Interfaces.CRM
 {
     public class CrmResponse
     {

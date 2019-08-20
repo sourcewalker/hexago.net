@@ -1,7 +1,7 @@
-﻿using System.Globalization;
-using Web.Configuration.Configuration;
+﻿using Core.Shared.Models;
+using System.Globalization;
 
-namespace Web.Configuration.Interfaces
+namespace Core.Infrastructure.Interfaces.Configuration
 {
     public interface IConfigurationProvider
     {

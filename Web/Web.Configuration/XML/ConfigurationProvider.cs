@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using Core.Shared.Models;
+using System;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
-using Web.Configuration.Configuration;
-using Web.Configuration.Elements;
-using Web.Configuration.Interfaces;
+using Web.Configuration.Models.Elements;
 using Web.Configuration.Sections;
 
-namespace Web.Configuration.Implementations
+namespace Web.Configuration.XML
 {
     public class ConfigurationProvider : IConfigurationProvider
     {

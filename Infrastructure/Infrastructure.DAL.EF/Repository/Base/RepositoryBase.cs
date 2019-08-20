@@ -1,4 +1,5 @@
-﻿using Core.Model;
+﻿using Core.Infrastructure.Interfaces.DAL;
+using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

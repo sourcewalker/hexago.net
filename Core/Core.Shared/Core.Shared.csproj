@@ -44,9 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\Configuration.cs" />
-    <Compile Include="Configuration\CrmResponse.cs" />
-    <Compile Include="Configuration\Environments.cs" />
+    <Compile Include="Models\Configurations.cs" />
+    <Compile Include="Models\Environments.cs" />
     <Compile Include="DTO\FailedTransactionDto.cs" />
     <Compile Include="DTO\SiteDto.cs" />
     <Compile Include="DTO\ParticipantDto.cs" />

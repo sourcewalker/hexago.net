@@ -1,9 +1,9 @@
 ﻿using Core.Model;
-using System.Data.Entity;
+using Core.Shared.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Core.Shared.Configuration;
 using System.Linq;
 
 namespace Infrastructure.DAL.EF
@@ -35,7 +35,7 @@ namespace Infrastructure.DAL.EF
         public IQueryable<Participation> ParticipationsQueryable
         {
             get => Participations.Include(v => v.Site);
-            set => Participations = (DbSet<Participation>) value;
+            set => Participations = (DbSet<Participation>)value;
         }
 
         public DbSet<Participant> Participants { get; set; }
@@ -51,7 +51,7 @@ namespace Infrastructure.DAL.EF
         public IQueryable<FailedTransaction> FailedTransactionsQueryable
         {
             get => FailedTransactions.Include(ft => ft.Participation);
-            set => FailedTransactions = (DbSet<FailedTransaction>) value;
+            set => FailedTransactions = (DbSet<FailedTransaction>)value;
         }
 
         public DbSet<Site> Sites { get; set; }
@@ -59,7 +59,7 @@ namespace Infrastructure.DAL.EF
         public IQueryable<Site> SitesQueryable
         {
             get => Sites;
-            set => Sites = (DbSet<Site>) value;
+            set => Sites = (DbSet<Site>)value;
         }
 
         #endregion

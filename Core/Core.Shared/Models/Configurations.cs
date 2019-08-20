@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
 
-namespace Core.Shared.Configuration
+namespace Core.Shared.Models
 {
-    public class Configuration
+    public class Configurations
     {
         public Environments Environment { get; set; }
 
@@ -11,7 +11,7 @@ namespace Core.Shared.Configuration
 
         public List<string> Exceptions = new List<string>();
 
-        public Configuration()
+        public Configurations()
         {
             Settings = new ExpandoObject();
         }

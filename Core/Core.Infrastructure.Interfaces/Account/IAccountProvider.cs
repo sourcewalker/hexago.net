@@ -1,10 +1,10 @@
-﻿using Core.Shared.Configuration;
+﻿using Core.Shared.Models;
 
 namespace Core.Infrastructure.Interfaces.Account
 {
     public interface IAccountProvider
     {
-        Configuration Configuration { get; set; }
+        Configurations Configuration { get; set; }
 
         LoginResult Login(LoginInfo login);
 

@@ -1,4 +1,4 @@
-﻿using Core.Shared.Configuration;
+﻿using Core.Shared.Models;
 using Elmah;
 using System;
 using System.Collections;

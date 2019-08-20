@@ -1,22 +1,22 @@
 ﻿using System.Configuration;
-using Web.Configuration.Elements;
+using Web.Configuration.Models.Elements;
 
-namespace Web.Configuration.Collections
+namespace Web.Configuration.Models.Collections
 {
-    public class SiteCollection : ConfigurationElementCollection
+    public class EnvironmentCollection : ConfigurationElementCollection
     {
-        public new SiteElement this[string name]
+        public new EnvironmentElement this[string name]
         {
             get
             {
                 if (IndexOf(name) < 0) return null;
-                return (SiteElement)BaseGet(name);
+                return (EnvironmentElement)BaseGet(name);
             }
         }
 
-        public SiteElement this[int index]
+        public EnvironmentElement this[int index]
         {
-            get { return (SiteElement)BaseGet(index); }
+            get { return (EnvironmentElement)BaseGet(index); }
         }
 
         public int IndexOf(string name)
@@ -38,17 +38,17 @@ namespace Web.Configuration.Collections
 
         protected override ConfigurationElement CreateNewElement()
         {
-            return new SiteElement();
+            return new EnvironmentElement();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((SiteElement)element).Name;
+            return ((EnvironmentElement)element).Name;
         }
 
         protected override string ElementName
         {
-            get { return "Site"; }
+            get { return "Environment"; }
         }
     }
 }

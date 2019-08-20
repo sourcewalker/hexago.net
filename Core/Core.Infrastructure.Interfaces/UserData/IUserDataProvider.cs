@@ -1,10 +1,10 @@
-﻿using Core.Shared.Configuration;
+﻿using Core.Shared.Models;
 
 namespace Core.Infrastructure.Interfaces.UserData
 {
     public interface IUserDataProvider
     {
-        Configuration Configuration { get; set; }
+        Configurations Configuration { get; set; }
 
         User GetUserDetails<T>(T id);
     }

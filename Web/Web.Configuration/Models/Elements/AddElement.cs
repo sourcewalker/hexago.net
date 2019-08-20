@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Web.Configuration.Elements
+namespace Web.Configuration.Models.Elements
 {
     public class AddElement : ConfigurationElement
     {

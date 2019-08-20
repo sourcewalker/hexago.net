@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Core.Shared.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Core.Shared.Tests.Configuration
 {
@@ -9,7 +10,7 @@ namespace Core.Shared.Tests.Configuration
         public void Storing_And_Retrieving_From_Configuration_Object_should_work()
         {
             // Arrange
-            var config = new Shared.Configuration.Configuration();
+            var config = new Configurations();
 
             // Act
             config.AddSetting("testText", "This is an insert test");

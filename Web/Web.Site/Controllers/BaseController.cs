@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Core.Infrastructure.Interfaces.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Configuration;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using Web.Configuration.Interfaces;
 using Web.Site.ViewModels;
 
 namespace Web.Site.Controllers
@@ -47,7 +47,7 @@ namespace Web.Site.Controllers
 
             if (_currentHttpContext.Request.Url != null)
                 currentUrl = _currentHttpContext.Request.Url.GetLeftPart(UriPartial.Path);
-                currentHost = _currentHttpContext.Request.Url.GetLeftPart(UriPartial.Authority);
+            currentHost = _currentHttpContext.Request.Url.GetLeftPart(UriPartial.Authority);
 
             var culture = _configurationProvider.GetCultureByUrl(currentUrl);
             var cookies = _currentHttpContext.Request.Cookies;
@@ -69,13 +69,13 @@ namespace Web.Site.Controllers
 
         private void ConfigureSEO()
         {
-            TempData["Mldz_SiteId"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Mldz:SiteId", 
+            TempData["Mldz_SiteId"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Mldz:SiteId",
                                             Thread.CurrentThread.CurrentCulture);
-            TempData["Meta_Title"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Meta_Title", 
+            TempData["Meta_Title"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Meta_Title",
                                             Thread.CurrentThread.CurrentCulture);
-            TempData["Meta_Keywords"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Meta_Keywords", 
+            TempData["Meta_Keywords"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Meta_Keywords",
                                             Thread.CurrentThread.CurrentCulture);
-            TempData["Meta_Description"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Meta_Description", 
+            TempData["Meta_Description"] = _configurationProvider.GetSharedEnvironmentConfigByCulture("Meta_Description",
                                                 Thread.CurrentThread.CurrentCulture);
             TempData["host_Name"] = CurrentHost;
         }
