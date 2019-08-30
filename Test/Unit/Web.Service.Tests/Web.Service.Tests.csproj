@@ -139,7 +139,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Web\Web.Service\Web.Service.csproj">
+    <ProjectReference Include="..\..\..\Source\Web\Web.Service\Web.Service.csproj">
       <Project>{41B1BD19-AEE8-47AF-88A6-934355500BDE}</Project>
       <Name>Web.Service</Name>
     </ProjectReference>

@@ -116,7 +116,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Web\Web.Site\Web.Site.csproj">
+    <ProjectReference Include="..\..\..\Source\Web\Web.Site\Web.Site.csproj">
       <Project>{B6BF0D07-7AB4-4244-A2B0-3F8EE9CA1914}</Project>
       <Name>Web.Site</Name>
     </ProjectReference>
