@@ -2,9 +2,8 @@
 
 namespace Core.Shared.DTO
 {
-    public class ParticipationDto
+    public class ParticipationDto : BaseDto
     {
-        public Guid Id { get; set; }
 
         public Guid? SiteId { get; set; }
 
@@ -25,9 +24,5 @@ namespace Core.Shared.DTO
         public bool NewsletterOptin { get; set; }
 
         public bool RetailerConsent { get; set; }
-
-        public DateTimeOffset CreatedDate { get; set; }
-
-        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

@@ -2,8 +2,10 @@
 using Autofac.Integration.WebApi;
 using Core.Infrastructure.Interfaces.DAL;
 using Core.Infrastructure.Interfaces.Logging;
+using Core.Infrastructure.Interfaces.Mapping;
 using Core.Service.Domain;
 using Core.Service.Interfaces;
+using Infrastructure.AutoMapper.Provider;
 using Infrastructure.DAL.EF.Repository.Implementations;
 using Infrastructure.Elmah;
 using System.Reflection;
@@ -27,6 +29,9 @@ namespace Admin.Service
             builder.RegisterWebApiModelBinderProvider();
 
             // Infrastructures
+            builder.RegisterType<MappingProvider>()
+                   .As<IMappingProvider>()
+                   .InstancePerLifetimeScope();
             builder.RegisterType<ElmahProvider>()
                    .As<ILoggingProvider>()
                    .InstancePerLifetimeScope();

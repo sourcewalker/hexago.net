@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Core.Shared.Mapping;
+using Infrastructure.AutoMapper.Profiles;
 using Web.Service.Mapping;
 
 namespace Web.Service

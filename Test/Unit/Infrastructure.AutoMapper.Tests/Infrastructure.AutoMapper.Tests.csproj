@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{561617E5-A86F-458E-B08E-16072E561C55}</ProjectGuid>
+    <ProjectGuid>{9DA36A07-C454-49DE-9B89-7992B8BB52C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Shared.Tests</RootNamespace>
-    <AssemblyName>Core.Shared.Tests</AssemblyName>
+    <RootNamespace>Infrastructure.AutoMapper.Tests</RootNamespace>
+    <AssemblyName>Infrastructure.AutoMapper.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -66,11 +66,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyConfig.cs" />
-    <Compile Include="Configuration\ConfigurationTests.cs" />
+    <Compile Include="FailedTransactionMapperTests.cs" />
+    <Compile Include="ParticipationMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\CheckSumTests.cs" />
-    <Compile Include="Utility\StringUtilityTests.cs" />
+    <Compile Include="SiteMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -85,7 +84,7 @@
       <Name>Core.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Source\Core\Core.Shared\Core.Shared.csproj">
-      <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
+      <Project>{02E9A3F0-2B42-44CC-A5D6-A39271C25CBA}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Source\Infrastructure\Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj">

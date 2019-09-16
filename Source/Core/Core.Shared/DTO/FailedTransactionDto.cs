@@ -4,10 +4,8 @@ using System;
 
 namespace Core.Shared.DTO
 {
-    public class FailedTransactionDto
+    public class FailedTransactionDto : BaseDto
     {
-        public Guid Id { get; set; }
-
         public Guid? ParticipationId { get; set; }
 
         public ParticipationDto Participation { get; set; }
@@ -15,9 +13,5 @@ namespace Core.Shared.DTO
         public bool TermsConsent { get; set; }
 
         public bool NewsletterOptin { get; set; }
-
-        public DateTimeOffset CreatedDate { get; set; }
-
-        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

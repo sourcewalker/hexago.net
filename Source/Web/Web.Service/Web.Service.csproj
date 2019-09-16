@@ -301,6 +301,10 @@
       <Project>{F9A95FAC-66F5-43BA-B76D-613EEADB1DF2}</Project>
       <Name>Core.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj">
+      <Project>{C47D9CCE-A1F6-4E00-8EC5-08265B9D21A1}</Project>
+      <Name>Infrastructure.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.Captcha\Infrastructure.Captcha.csproj">
       <Project>{DF14FDD4-530F-425F-84F8-22CBB9BF9C06}</Project>
       <Name>Infrastructure.Captcha</Name>
