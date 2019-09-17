@@ -7,7 +7,6 @@ using Core.Model;
 using Infrastructure.DAL.EF.Repository.Base;
 using Core.Infrastructure.Interfaces.DAL;
 using Core.Infrastructure.Interfaces.Mapping;
-using Infrastructure.Helper;
 
 namespace Infrastructure.DAL.EF.Repository.Implementations
 {
