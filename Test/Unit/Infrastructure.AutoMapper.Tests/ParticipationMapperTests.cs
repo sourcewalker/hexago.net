@@ -1,13 +1,12 @@
-﻿using Core.Shared.DTO;
+﻿using AutoMapper;
 using Core.Model;
+using Core.Shared.DTO;
+using Infrastructure.AutoMapper.Provider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Moq;
-using Core.Infrastructure.Interfaces.Mapping;
-using AutoMapper;
-using Infrastructure.AutoMapper.Provider;
 
 namespace Core.Shared.Tests.Mapping.Helper
 {

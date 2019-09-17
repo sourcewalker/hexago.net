@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Core.Infrastructure.Interfaces.Mapping;
 using Core.Model;
 using Core.Shared.DTO;
 using Infrastructure.AutoMapper.Provider;
