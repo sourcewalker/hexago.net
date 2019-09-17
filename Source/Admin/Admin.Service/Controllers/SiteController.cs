@@ -1,6 +1,7 @@
 ﻿using Admin.Service.Models;
 using Core.Infrastructure.Interfaces.Logging;
 using Core.Service.Interfaces;
+using Core.Shared.DTO;
 using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Dynamic;
@@ -94,7 +95,7 @@ namespace Admin.Service.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(ApiResponse))]
         // GET api/values/5
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(string id)
         {
             dynamic expando = new ExpandoObject();
 
@@ -107,12 +108,26 @@ namespace Admin.Service.Controllers
 
             try
             {
+                var idGuid = Guid.Empty;
+                var isGuid = string.IsNullOrEmpty(id) ?
+                    false : Guid.TryParse(id, out idGuid);
+                if (!isGuid)
+                {
+                    expando.Description = "id format is not correct.";
+                    apiResponse.Data = expando;
+
+                    _logger.LogWarn("Parameter error", "id parameter is in bad format");
+
+                    return Content(HttpStatusCode.BadRequest, apiResponse);
+                }
+
+                expando.Site = _siteService.GetSite(idGuid);
 
                 apiResponse.Success = true;
                 apiResponse.Message = "Site list returned successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
+                _logger.LogWarn($"Site Id Requested: {idGuid}", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -144,7 +159,7 @@ namespace Admin.Service.Controllers
         [System.Web.Http.Route("create")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(ApiResponse))]
-        public IHttpActionResult Post([FromBody]string site)
+        public IHttpActionResult Post([FromBody]SiteDto site)
         {
             dynamic expando = new ExpandoObject();
 
@@ -157,12 +172,23 @@ namespace Admin.Service.Controllers
 
             try
             {
+                site.Id = site.Id == default ? Guid.NewGuid() : site.Id;
+                var status = _siteService.CreateSite(site);
+                if (!status)
+                {
+                    expando.Description = "Creation has failed. Please retry later.";
+                    apiResponse.Data = expando;
+
+                    _logger.LogWarn("Site Creation error", "Creation failure");
+
+                    return Content(HttpStatusCode.BadRequest, apiResponse);
+                }
 
                 apiResponse.Success = true;
-                apiResponse.Message = "Site list returned successfully";
+                apiResponse.Message = "Site creation successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
+                _logger.LogWarn($"Site Id Created: {site.Id}", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -195,7 +221,7 @@ namespace Admin.Service.Controllers
         [System.Web.Http.Route("update/{id}")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(ApiResponse))]
-        public IHttpActionResult Put(int id, [FromBody]string site)
+        public IHttpActionResult Put(string id, [FromBody]SiteDto site)
         {
             dynamic expando = new ExpandoObject();
 
@@ -208,12 +234,36 @@ namespace Admin.Service.Controllers
 
             try
             {
+                var idGuid = Guid.Empty;
+                var isGuid = string.IsNullOrEmpty(id) ?
+                    false : Guid.TryParse(id, out idGuid);
+                if (!isGuid)
+                {
+                    expando.Description = "id format is not correct.";
+                    apiResponse.Data = expando;
+
+                    _logger.LogWarn("Parameter error", "id parameter is in bad format");
+
+                    return Content(HttpStatusCode.BadRequest, apiResponse);
+                }
+
+                site.Id = site.Id == idGuid ? site.Id : idGuid;
+                var status = _siteService.UpdateSite(site);
+                if (!status)
+                {
+                    expando.Description = "Update has failed. Please retry later.";
+                    apiResponse.Data = expando;
+
+                    _logger.LogWarn("Site Update error", "Update failure");
+
+                    return Content(HttpStatusCode.BadRequest, apiResponse);
+                }
 
                 apiResponse.Success = true;
-                apiResponse.Message = "Site list returned successfully";
+                apiResponse.Message = "Site updated successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
+                _logger.LogWarn($"Site Id Updated: {idGuid}", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
@@ -245,7 +295,7 @@ namespace Admin.Service.Controllers
         [System.Web.Http.Route("delete/{id}")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(ApiResponse))]
         [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(ApiResponse))]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(string id)
         {
             dynamic expando = new ExpandoObject();
 
@@ -258,12 +308,35 @@ namespace Admin.Service.Controllers
 
             try
             {
+                var idGuid = Guid.Empty;
+                var isGuid = string.IsNullOrEmpty(id) ?
+                    false : Guid.TryParse(id, out idGuid);
+                if (!isGuid)
+                {
+                    expando.Description = "id format is not correct.";
+                    apiResponse.Data = expando;
+
+                    _logger.LogWarn("Parameter error", "id parameter is in bad format");
+
+                    return Content(HttpStatusCode.BadRequest, apiResponse);
+                }
+
+                var status = _siteService.DeleteSite(idGuid);
+                if (!status)
+                {
+                    expando.Description = "Deletion has failed. Please retry later.";
+                    apiResponse.Data = expando;
+
+                    _logger.LogWarn("Site Deletion error", "Deletion failure");
+
+                    return Content(HttpStatusCode.BadRequest, apiResponse);
+                }
 
                 apiResponse.Success = true;
-                apiResponse.Message = "Site list returned successfully";
+                apiResponse.Message = "Site removed successfully";
                 apiResponse.Data = expando;
 
-                //_logger.LogWarn("Sites Requested", $"On {DateTimeOffset.UtcNow.ToString()}");
+                _logger.LogWarn($"Site Id Removed: {idGuid}", $"On {DateTimeOffset.UtcNow.ToString()}");
 
                 return Ok(apiResponse);
             }
