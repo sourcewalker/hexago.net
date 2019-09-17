@@ -6,10 +6,10 @@ namespace Web.Service.Mapping.Helper
 {
     public static class ExtractMapper
     {
-        public static ExtractModel toExtractModel(this ParticipationDto vote)
-            => AutoMapper.Mapper.Map<ParticipationDto, ExtractModel>(vote);
+        public static ExtractModel toExtractModel(this ParticipationDto participation)
+            => AutoMapper.Mapper.Map<ParticipationDto, ExtractModel>(participation);
 
-        public static IEnumerable<ExtractModel> toExtractModels(this IEnumerable<ParticipationDto> votes)
-            => AutoMapper.Mapper.Map<IEnumerable<ParticipationDto>, IEnumerable<ExtractModel>>(votes);
+        public static IEnumerable<ExtractModel> toExtractModels(this IEnumerable<ParticipationDto> participations)
+            => AutoMapper.Mapper.Map<IEnumerable<ParticipationDto>, IEnumerable<ExtractModel>>(participations);
     }
 }

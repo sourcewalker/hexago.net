@@ -7,7 +7,6 @@ using Core.Model;
 using Infrastructure.DAL.EF.Repository.Base;
 using Core.Infrastructure.Interfaces.DAL;
 using Core.Infrastructure.Interfaces.Mapping;
-using Infrastructure.Helper;
 
 namespace Infrastructure.DAL.EF.Repository.Implementations
 {
@@ -131,10 +130,10 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
 
         public IEnumerable<ParticipationDto> GetBySite(Guid siteId)
         {
-            return Context.ParticipationsQueryable
+            var participationBySite = Context.ParticipationsQueryable
                             .Where(x => x.SiteId == siteId)
-                            .AsEnumerable<Participation>()
-                            .toDtos();
+                            .AsEnumerable<Participation>();
+            return _mapper.toDtos<ParticipationDto>(participationBySite);
         }
 
         public async Task<IEnumerable<ParticipationDto>> GetBySiteAsync(Guid siteId)

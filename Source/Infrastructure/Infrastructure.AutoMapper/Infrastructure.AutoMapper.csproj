@@ -44,10 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\FailedTransactionMapper.cs" />
-    <Compile Include="Helper\ParticipantMapper.cs" />
-    <Compile Include="Helper\ParticipationMapper.cs" />
-    <Compile Include="Helper\SiteMapper.cs" />
     <Compile Include="Profiles\DomainMapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\MappingProvider.cs" />
