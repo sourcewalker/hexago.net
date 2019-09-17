@@ -6,9 +6,9 @@ namespace Web.Service.Models
 {
     public class ParticipationViewModel
     {
-        [Required(ErrorMessage = ErrorMessages.Vote.EmailRequired)]
-        [EmailAddress(ErrorMessage = ErrorMessages.Vote.EmailInvalid)]
-        [NotUsedEmail(ErrorMessage = ErrorMessages.Vote.AlreadyUsedEmail)]
+        [Required(ErrorMessage = ErrorMessages.Participation.EmailRequired)]
+        [EmailAddress(ErrorMessage = ErrorMessages.Participation.EmailInvalid)]
+        [NotUsedEmail(ErrorMessage = ErrorMessages.Participation.AlreadyUsedEmail)]
         public string Email { get; set; }
 
         public string Culture { get; set; }
@@ -17,7 +17,7 @@ namespace Web.Service.Models
 
         public bool NewsletterOptin { get; set; }
 
-        [Captcha(ErrorMessage = ErrorMessages.Vote.CaptchaInvalid)]
+        [Captcha(ErrorMessage = ErrorMessages.Participation.CaptchaInvalid)]
         public string Captcha { get; set; }
     }
 }

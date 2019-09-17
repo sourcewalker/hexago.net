@@ -3,7 +3,7 @@ namespace Web.Service.Constants
 {
     public struct ErrorMessages
     {
-        public struct Vote
+        public struct Participation
         {
 
             public const string EmailRequired = "EMAIL_REQUIRED";
