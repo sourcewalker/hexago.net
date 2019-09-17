@@ -62,6 +62,7 @@
     <Compile Include="InstantWin\GeneratorLimitOptions.cs" />
     <Compile Include="InstantWin\IInstantWinMomentProvider.cs" />
     <Compile Include="Logging\ILoggingProvider.cs" />
+    <Compile Include="Mapping\IMappingProvider.cs" />
     <Compile Include="Scheduler\CronEnum.cs" />
     <Compile Include="Scheduler\ISchedulerProvider.cs" />
     <Compile Include="UserData\IUserDataProvider.cs" />

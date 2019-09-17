@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Core.Shared.DTO;
 using Core.Model;
+using Core.Shared.DTO;
 
-namespace Core.Shared.Mapping
+namespace Infrastructure.AutoMapper.Profiles
 {
     public class DomainMapperProfile : Profile
     {

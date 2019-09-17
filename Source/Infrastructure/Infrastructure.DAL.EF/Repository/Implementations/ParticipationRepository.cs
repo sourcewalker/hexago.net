@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Shared.DTO;
-using Core.Shared.Mapping.Helper;
 using Core.Model;
 using Infrastructure.DAL.EF.Repository.Base;
 using Core.Infrastructure.Interfaces.DAL;
+using Core.Infrastructure.Interfaces.Mapping;
+using Infrastructure.Helper;
 
 namespace Infrastructure.DAL.EF.Repository.Implementations
 {
     public class ParticipationRepository : RepositoryBase<Participation>, IParticipationRepository
     {
         private readonly IParticipantRepository _participantRepository;
+        private readonly IMappingProvider _mapper;
 
-        public ParticipationRepository(IParticipantRepository participantRepository)
+        public ParticipationRepository(IParticipantRepository participantRepository, IMappingProvider mapper)
         {
             _participantRepository = participantRepository;
+            _mapper = mapper;
         }
 
         public IEnumerable<ParticipationDto> GetAll()
         {
-            return Table?.toDtos();
+            return _mapper.toDtos<ParticipationDto>(Table);
         }
 
         public int GetCount()
@@ -37,32 +40,32 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         }
 
         public async Task<IEnumerable<ParticipationDto>> GetAllAsync()
-            => await Task.Run(() => Table?.toDtos());
+            => await Task.Run(() => _mapper.toDtos<ParticipationDto>(Table));
 
         public ParticipationDto GetById(Guid id)
-            => Find(id)?.toDto();
+            => _mapper.toDto<ParticipationDto>(Find(id));
 
         public async Task<ParticipationDto> GetByIdAsync(Guid id)
-            => await Task.Run(() => Find(id)?.toDto());
+            => await Task.Run(() => _mapper.toDto<ParticipationDto>(Find(id)));
 
         public IEnumerable<ParticipationDto> GetPaged(int pageNumber, int pageSize)
-            => GetRange(pageSize * (pageNumber - 1), pageSize)?.toDtos();
+            => _mapper.toDtos<ParticipationDto>(GetRange(pageSize * (pageNumber - 1), pageSize));
 
         public async Task<IEnumerable<ParticipationDto>> GetPagedAsync(int pageNumber, int pageSize)
-            => await Task.Run(() => GetRange(pageSize * (pageNumber - 1), pageSize)?.toDtos());
+            => await Task.Run(() => _mapper.toDtos<ParticipationDto>(GetRange(pageSize * (pageNumber - 1), pageSize)));
 
         public bool Add(ParticipationDto participation)
         {
             participation.Id = participation.Id != default ? participation.Id : Guid.NewGuid();
             participation.CreatedDate = DateTimeOffset.UtcNow;
-            return Add(participation?.toEntity(), true) > 0;
+            return Add(_mapper.toEntity<Participation>(participation), true) > 0;
         }
 
         public async Task<bool> AddAsync(ParticipationDto participation)
         {
             participation.Id = participation.Id != default ? participation.Id : Guid.NewGuid();
             participation.CreatedDate = DateTimeOffset.UtcNow;
-            return await Task.Run(() => Add(participation?.toEntity(), true) > 0);
+            return await Task.Run(() => Add(_mapper.toEntity<Participation>(participation), true) > 0);
         }
 
         public bool Update(ParticipationDto participation)
@@ -78,26 +81,26 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         public async Task<bool> UpdateAsync(ParticipationDto participation)
         {
             participation.ModifiedDate = DateTimeOffset.UtcNow;
-            return await Task.Run(() => Update(participation?.toEntity(), true) > 0);
+            return await Task.Run(() => Update(_mapper.toEntity<Participation>(participation), true) > 0);
         }
 
         public bool Delete(ParticipationDto participation)
-            => Delete(participation?.toEntity(), true) > 0;
+            => Delete(_mapper.toEntity<Participation>(participation), true) > 0;
 
         public async Task<bool> DeleteAsync(ParticipationDto participation)
-            => await Task.Run(() => Delete(participation?.toEntity(), true) > 0);
+            => await Task.Run(() => Delete(_mapper.toEntity<Participation>(participation), true) > 0);
 
         public bool Delete(Guid id)
         {
             var participation = GetById(id);
-            return Delete(participation?.toEntity(), true) > 0;
+            return Delete(_mapper.toEntity<Participation>(participation), true) > 0;
         }
 
         public async Task<bool> DeleteAsync(Guid id)
             => await Task.Run(() =>
             {
                 var participation = GetById(id);
-                return Delete(participation?.toEntity(), true) > 0;
+                return Delete(_mapper.toEntity<Participation>(participation), true) > 0;
             });
 
         public IEnumerable<ParticipationDto> GetPagedBySite(int pageNumber, int pageSize)
@@ -113,7 +116,7 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         public IEnumerable<ParticipationDto> GetPagedBySite(Guid siteId, int pageNumber, int pageSize)
         {
             IQueryable<Participation> filtered = Context.ParticipationsQueryable.Where(x => x.SiteId == siteId);
-            return GetRange(filtered, pageSize * (pageNumber - 1), pageSize).toDtos();
+            return _mapper.toDtos<ParticipationDto>(GetRange(filtered, pageSize * (pageNumber - 1), pageSize));
         }
 
         public async Task<IEnumerable<ParticipationDto>> GetPagedBySiteAsync(Guid siteId, int pageNumber, int pageSize)
@@ -121,7 +124,7 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
             return await Task.Run((Func<IEnumerable<ParticipationDto>>)(() =>
             {
                 IQueryable<Participation> filtered = Context.ParticipationsQueryable.Where(x => x.SiteId == siteId);
-                return ParticipationMapper.toDtos(GetRange((IQueryable<Participation>)filtered, 
+                return _mapper.toDtos<ParticipationDto>(GetRange((IQueryable<Participation>)filtered, 
                     (int)(pageSize * (pageNumber - 1)), (int)pageSize));
             }));
         }
@@ -138,7 +141,7 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
         {
             return await Task.Run((Func<IEnumerable<ParticipationDto>>)(() =>
             {
-                return ParticipationMapper.toDtos(Context.ParticipationsQueryable
+                return _mapper.toDtos<ParticipationDto>(Context.ParticipationsQueryable
                             .Where((System.Linq.Expressions.Expression<Func<Participation, bool>>)(x => (bool)(x.SiteId == siteId)))
                             .AsEnumerable()
 );
@@ -151,15 +154,15 @@ namespace Infrastructure.DAL.EF.Repository.Implementations
             var participation = Context.ParticipationsQueryable
                             .FirstOrDefault(x => x.Id == participant.ParticipationId);
 
-            return participation?.toDto();
+            return _mapper.toDto<ParticipationDto>(participation);
         }
 
         public IEnumerable<ParticipationDto> GetBetween(DateTimeOffset start, DateTimeOffset end)
         {
-            return Context.ParticipationsQueryable
+            var between = Context.ParticipationsQueryable
                         .Where(v => start < v.CreatedDate && v.CreatedDate < end)
-                        .AsEnumerable()
-                        .toDtos();
+                        .AsEnumerable();
+            return _mapper.toDtos<ParticipationDto>(between);
         }
     }
 }

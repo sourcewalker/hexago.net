@@ -6,12 +6,14 @@ using Core.Infrastructure.Interfaces.Crm;
 using Core.Infrastructure.Interfaces.DAL;
 using Core.Infrastructure.Interfaces.InstantWin;
 using Core.Infrastructure.Interfaces.Logging;
+using Core.Infrastructure.Interfaces.Mapping;
 using Core.Infrastructure.Interfaces.Scheduler;
 using Core.Infrastructure.Interfaces.Validator;
 using Core.Service.Domain;
 using Core.Service.Flow;
 using Core.Service.Interfaces;
 using Hangfire;
+using Infrastructure.AutoMapper.Provider;
 using Infrastructure.Captcha.Provider;
 using Infrastructure.Community;
 using Infrastructure.DAL.EF.Repository.Implementations;
@@ -45,6 +47,9 @@ namespace Web.Service
                    .InstancePerLifetimeScope();
 
             // Infrastructures
+            builder.RegisterType<MappingProvider>()
+                   .As<IMappingProvider>()
+                   .InstancePerLifetimeScope();
             builder.RegisterType<KuhmunityProvider>()
                    .As<IAccountProvider>()
                    .InstancePerLifetimeScope();

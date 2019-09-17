@@ -1,5 +1,4 @@
-﻿
-namespace Core.Infrastructure.Interfaces.Crm
+﻿namespace Core.Infrastructure.Interfaces.Crm
 {
     public interface ICrmCommerceProvider
     {

@@ -249,6 +249,10 @@
       <Project>{02e9a3f0-2b42-44cc-a5d6-a39271c25cba}</Project>
       <Name>Core.Shared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj">
+      <Project>{C47D9CCE-A1F6-4E00-8EC5-08265B9D21A1}</Project>
+      <Name>Infrastructure.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.DAL.EF\Infrastructure.DAL.EF.csproj">
       <Project>{7202C8DA-FF00-47D9-9F91-0969677DA7A8}</Project>
       <Name>Infrastructure.DAL.EF</Name>

@@ -18,5 +18,4 @@ namespace Core.Infrastructure.Interfaces.InstantWin
 
         public int LimitNumber { get; set; }
     }
-
 }
