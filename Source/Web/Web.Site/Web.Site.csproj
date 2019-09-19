@@ -158,8 +158,6 @@
     <Content Include="Error.htm" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="Properties\PublishProfiles\Production.pubxml" />
-    <None Include="Properties\PublishProfiles\Staging.pubxml" />
     <Content Include="Proximity.snk" />
     <Content Include="Resources\css\cookie.min.css" />
     <Content Include="Resources\css\critical\default.min.css" />
@@ -267,9 +265,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
