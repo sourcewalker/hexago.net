@@ -79,7 +79,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Librairies\SWEET.WebProjects.Brands.Milka.Kuhmunity.DTO.dll" />
+    <Content Include="Librairies\Kuhmunity.DTO.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
