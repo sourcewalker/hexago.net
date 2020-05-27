@@ -11,11 +11,11 @@ Nalijaona Irina Andriamifidy
 This Template is as ASP.NET Framework web project using .NET Framework 4.7.2 structured as following:  
 
 !["Hexago .Net Structure"](Assets/Hexago.Net.Structure.PNG)  
-*Fig. 2: Hexago .Net VS Project Structure*
+*Fig. 1: Hexago .Net VS Project Structure*
 
 ## 3. Achitecture
 
 The architectural overview of the template is resumed as per the following image:
 
 !["Hexago .Net Architecture"](Assets/Hexago.Net.Architecture.png)  
-*Fig. 5: Hexago .Net Project Architecture*
+*Fig. 2: Hexago .Net Project Architecture*
